@@ -19,6 +19,10 @@ export default function AppointmentsPage() {
   
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
   const [detailsModalOpen, setDetailsModalOpen] = useState(false);
+  
+  // Accept Modal date/time proposed state
+  const [acceptDate, setAcceptDate] = useState('');
+  const [acceptTime, setAcceptTime] = useState('');
 
   useEffect(() => {
     loadAppointments();
@@ -38,6 +42,8 @@ export default function AppointmentsPage() {
 
   const handleAcceptClick = (apt) => {
     setSelectedApt(apt);
+    setAcceptDate(apt['Requested Date'] || '');
+    setAcceptTime(apt['Requested Time'] || '');
     setAcceptModalOpen(true);
   };
 
@@ -312,13 +318,54 @@ export default function AppointmentsPage() {
             <form onSubmit={handleConfirmAccept} className="modal-form">
               <div className="form-group">
                 <label>Date</label>
-                <input type="date" name="date" defaultValue={selectedApt['Requested Date']} required />
+                <input 
+                  type="date" 
+                  name="date" 
+                  value={acceptDate} 
+                  onChange={(e) => setAcceptDate(e.target.value)} 
+                  required 
+                />
               </div>
               
               <div className="form-group">
                 <label>Time</label>
-                <input type="time" name="time" defaultValue={selectedApt['Requested Time']} required />
+                <input 
+                  type="time" 
+                  name="time" 
+                  value={acceptTime} 
+                  onChange={(e) => setAcceptTime(e.target.value)} 
+                  required 
+                />
               </div>
+
+              {(() => {
+                const conflictingApt = appointments.find(apt => {
+                  if (!selectedApt || apt['Booking ID'] === selectedApt['Booking ID']) return false;
+                  const status = String(apt.Status).toUpperCase();
+                  if (status !== 'ACCEPTED' && status !== 'CONFIRMED') return false;
+                  
+                  const aptDate = apt['Confirmed Date'] || apt['Requested Date'];
+                  const aptTime = apt['Confirmed Time'] || apt['Requested Time'];
+                  return aptDate === acceptDate && aptTime === acceptTime;
+                });
+                
+                if (conflictingApt) {
+                  return (
+                    <div style={{
+                      backgroundColor: '#fee2e2',
+                      borderLeft: '4px solid #ef4444',
+                      padding: '10px 14px',
+                      borderRadius: '6px',
+                      fontSize: '0.85rem',
+                      color: '#991b1b',
+                      marginBottom: '15px'
+                    }}>
+                      ⚠️ <strong>Time Conflict:</strong> You already have a confirmed booking with <strong>{conflictingApt['Patient Name']}</strong> at this time.
+                    </div>
+                  );
+                }
+                return null;
+              })()}
 
               <div className="form-group">
                 <label>Duration (minutes)</label>

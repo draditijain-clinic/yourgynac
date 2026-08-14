@@ -367,6 +367,15 @@ export default function Hero({ setPage }) {
             margin-right: auto;
           }
           .hero-actions {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: 12px;
+          }
+          .hero-actions .btn {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
             justify-content: center;
           }
           .viral-reel-badge {
