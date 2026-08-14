@@ -45,34 +45,77 @@ export default function App() {
     }
   }, [reservationData]);
 
-  // Initialize page route based on URL pathname (e.g. /admin)
+  // Initialize page route based on URL pathname (e.g. /online-consultation, /health-library/slug, /book)
   useEffect(() => {
-    const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-    if (path === 'admin') {
-      setPage('admin');
-    } else if (path) {
-      setPage(path);
-    } else {
-      setPage('home');
-    }
-  }, []);
+    const parseRoute = () => {
+      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      const parts = rawPath.split('/');
+      
+      const routeMap = {
+        '': 'home',
+        'home': 'home',
+        'about': 'about',
+        'services': 'services',
+        'online-consultation': 'consultation',
+        'consultation': 'consultation',
+        'health-library': 'library',
+        'library': 'library',
+        'book': 'appointment',
+        'appointment': 'appointment',
+        'faq': 'faq',
+        'contact': 'contact',
+        'privacy-policy': 'privacy',
+        'privacy': 'privacy',
+        'medical-disclaimer': 'disclaimer',
+        'disclaimer': 'disclaimer',
+        'confirmation': 'confirmation',
+        'admin': 'admin'
+      };
 
-  // Listen to popstate for browser navigation
-  useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      setPage(path === 'admin' ? 'admin' : (path || 'home'));
+      const primary = parts[0] || '';
+      if (primary === 'admin') {
+        setPage('admin');
+      } else if (primary === 'health-library' || primary === 'library') {
+        setPage('library');
+        if (parts[1]) {
+          window.location.hash = `#${parts[1]}`;
+        }
+      } else if (routeMap[primary]) {
+        setPage(routeMap[primary]);
+      } else if (rawPath) {
+        setPage(rawPath);
+      } else {
+        setPage('home');
+      }
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+
+    parseRoute();
+    window.addEventListener('popstate', parseRoute);
+    return () => window.removeEventListener('popstate', parseRoute);
   }, []);
 
-  // Navigate helper function with history push state
-  const navigateTo = (newPage) => {
+  // Navigate helper function with history push state to canonical paths
+  const navigateTo = (newPage, extraPath = '') => {
     setPage(newPage);
-    const newPath = newPage === 'home' ? '/' : `/${newPage}`;
-    if (window.location.pathname !== newPath) {
-      window.history.pushState(null, '', newPath);
+    
+    const canonicalPaths = {
+      home: '/',
+      about: '/about',
+      services: '/services',
+      consultation: '/online-consultation',
+      library: extraPath ? `/health-library/${extraPath}` : '/health-library',
+      appointment: '/book',
+      faq: '/faq',
+      contact: '/contact',
+      privacy: '/privacy-policy',
+      disclaimer: '/medical-disclaimer',
+      confirmation: '/confirmation',
+      admin: '/admin'
+    };
+
+    const targetPath = canonicalPaths[newPage] || (newPage === 'home' ? '/' : `/${newPage}`);
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState(null, '', targetPath);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

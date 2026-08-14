@@ -10,22 +10,31 @@ export default function HealthLibrary({ setPage }) {
   const [activeSlug, setActiveSlug] = useState(null);
 
   useEffect(() => {
-    // Check hash for direct video link
-    const hash = window.location.hash;
-    if (hash.startsWith('#/health-library/')) {
-      setActiveSlug(hash.replace('#/health-library/', ''));
-    }
+    const detectSlug = () => {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
 
-    const handleHashChange = () => {
-      const newHash = window.location.hash;
-      if (newHash.startsWith('#/health-library/')) {
-        setActiveSlug(newHash.replace('#/health-library/', ''));
+      if (path.startsWith('/health-library/')) {
+        const slug = path.replace('/health-library/', '').trim();
+        if (slug) setActiveSlug(slug);
+      } else if (hash.startsWith('#/health-library/')) {
+        const slug = hash.replace('#/health-library/', '').trim();
+        if (slug) setActiveSlug(slug);
+      } else if (hash.startsWith('#') && hash.length > 1) {
+        const slug = hash.substring(1).trim();
+        if (slug) setActiveSlug(slug);
       } else {
         setActiveSlug(null);
       }
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+
+    detectSlug();
+    window.addEventListener('hashchange', detectSlug);
+    window.addEventListener('popstate', detectSlug);
+    return () => {
+      window.removeEventListener('hashchange', detectSlug);
+      window.removeEventListener('popstate', detectSlug);
+    };
   }, []);
 
   useEffect(() => {

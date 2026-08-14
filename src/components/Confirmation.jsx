@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, Calendar, MapPin, Navigation } from 'lucide-react';
 import { API_CONFIG } from '../config';
+import SEO from './SEO';
 
 export default function Confirmation({ reservationData, setPage }) {
   const data = reservationData || JSON.parse(sessionStorage.getItem('lastReservation')) || {
@@ -18,6 +19,12 @@ export default function Confirmation({ reservationData, setPage }) {
 
   return (
     <section className="confirmation-page-section">
+      <SEO 
+        title="Appointment Confirmation | Dr. Aditi Jain"
+        description="Patient appointment confirmation summary."
+        path="/confirmation"
+        noindex={true}
+      />
       <div className="container">
         <div className="confirmation-receipt-card fade-in-down">
           <div className="success-icon-badge">
