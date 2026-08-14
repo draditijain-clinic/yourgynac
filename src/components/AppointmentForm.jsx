@@ -68,7 +68,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
   };
 
   const handleNextStep1 = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
     if (!selectedDate) {
       setError('Please select a preferred consultation date.');
       return;
@@ -79,7 +79,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
   };
 
   const handleNextStep2 = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
     if (!fullName || !phone || !email) {
       setError('Please fill in all required fields (Name, Phone, Email).');
       return;
@@ -91,6 +91,14 @@ export default function AppointmentForm({ setPage, setReservationData }) {
     setError('');
     setStep(3);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handlePrevStep = () => {
+    if (step > 1) {
+      setStep(step - 1);
+      setError('');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleSubmitBooking = async () => {
@@ -207,7 +215,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
             {holidayMessage && <p className="holiday-alert-txt">{holidayMessage}</p>}
 
             <div className="step-navigation-actions" style={{ justifyContent: 'flex-end' }}>
-              <button className="btn btn-primary" onClick={handleNextStep} disabled={checkingSlots || !!holidayMessage}>
+              <button className="btn btn-primary" onClick={handleNextStep1} disabled={checkingSlots || !!holidayMessage}>
                 Next <ChevronRight size={16} />
               </button>
             </div>
@@ -345,7 +353,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
               </button>
               <button 
                 className="btn btn-primary" 
-                onClick={handleNextStep}
+                onClick={handleNextStep2}
                 disabled={!consentDisclaimer || !consentPrivacy}
               >
                 Next <ChevronRight size={16} />
@@ -393,7 +401,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
               <button className="btn btn-outline" onClick={handlePrevStep} disabled={submitting}>
                 <ChevronLeft size={16} /> Back
               </button>
-              <button className="btn btn-primary" onClick={handleBookingConfirm} disabled={submitting}>
+              <button className="btn btn-primary" onClick={handleSubmitBooking} disabled={submitting}>
                 {submitting ? 'Submitting...' : 'Confirm Video Appointment'}
               </button>
             </div>
