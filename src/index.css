@@ -507,9 +507,10 @@ html {
 }
 
 .mobile-sticky-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   padding: 13px 14px;
   font-size: 0.82rem;
   font-weight: 700;

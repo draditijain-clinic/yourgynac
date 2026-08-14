@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Calendar, Send, Video, ArrowRight, Instagram, MapPin, Navigation, ChevronRight } from 'lucide-react';
+import { Phone, Calendar, Send, Video, ArrowRight, Instagram, MapPin, Navigation, ChevronRight, X } from 'lucide-react';
 import { API_CONFIG } from './config';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -35,6 +35,7 @@ export default function App() {
     } catch (_) { return null; }
   });
   const [appLoading, setAppLoading] = useState(true);
+  const [showStickyBar, setShowStickyBar] = useState(true);
 
   // Save reservationData when updated
   useEffect(() => {
@@ -786,11 +787,31 @@ export default function App() {
         {page !== 'admin' && <Footer setPage={navigateTo} />}
 
         {/* Mobile Sticky Bottom Bar (BOOK APPOINTMENT) */}
-        {page !== 'admin' && page !== 'appointment' && (
+        {showStickyBar && page !== 'admin' && page !== 'appointment' && (
           <div className="mobile-sticky-bottom-bar">
-            <div className="mobile-sticky-grid" style={{ gridTemplateColumns: '1fr' }}>
-              <button onClick={handleMobileBookClick} className="mobile-sticky-btn book">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%' }}>
+              <button onClick={handleMobileBookClick} className="mobile-sticky-btn book" style={{ flex: 1 }}>
                 <Calendar size={15} style={{ marginRight: '6px' }} /> Book Now
+              </button>
+              <button 
+                onClick={() => setShowStickyBar(false)} 
+                className="close-sticky-btn"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  backgroundColor: '#f1ece1',
+                  border: 'none',
+                  color: 'var(--primary-color)',
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  transition: 'background-color 0.2s'
+                }}
+              >
+                <X size={18} />
               </button>
             </div>
           </div>
