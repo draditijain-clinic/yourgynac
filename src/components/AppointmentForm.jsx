@@ -349,7 +349,11 @@ export default function AppointmentForm({ setPage, setReservationData }) {
               <button className="btn btn-outline" onClick={handlePrevStep}>
                 <ChevronLeft size={16} /> Back
               </button>
-              <button className="btn btn-primary" onClick={handleNextStep}>
+              <button 
+                className="btn btn-primary" 
+                onClick={handleNextStep}
+                disabled={!consentDisclaimer || !consentPrivacy}
+              >
                 Next <ChevronRight size={16} />
               </button>
             </div>
@@ -451,9 +455,9 @@ export default function AppointmentForm({ setPage, setReservationData }) {
       </div>
 
       {submitting && (
-        <div className="loading-overlay">
-          <div className="spinner"></div>
-          <p style={{ marginTop: '15px', fontWeight: '600', color: 'var(--text-color)', fontFamily: 'var(--font-sans)' }}>Booking your appointment...</p>
+        <div className="global-preloader">
+          <div className="loader-pulse"></div>
+          <p style={{ marginTop: '20px', fontWeight: '600', color: 'var(--text-color)', fontFamily: 'var(--font-sans)', zIndex: 10 }}>Booking your appointment...</p>
         </div>
       )}
 
@@ -581,6 +585,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
           padding: 10px 0;
           border-bottom: 1px solid #f5efeb;
           font-size: 0.95rem;
+          gap: 15px;
         }
 
         .summary-row:last-child {
@@ -594,6 +599,8 @@ export default function AppointmentForm({ setPage, setReservationData }) {
         .summary-value {
           color: var(--text-color);
           font-weight: 500;
+          text-align: right;
+          word-break: break-word;
         }
 
         .success-icon-badge {
@@ -644,6 +651,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
           justify-content: space-between;
           padding: 8px 0;
           font-size: 0.95rem;
+          gap: 15px;
         }
 
         .receipt-label {
@@ -653,6 +661,8 @@ export default function AppointmentForm({ setPage, setReservationData }) {
         .receipt-value {
           color: var(--text-color);
           font-weight: 500;
+          text-align: right;
+          word-break: break-word;
         }
 
         .meet-url-box h5 {

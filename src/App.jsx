@@ -786,7 +786,7 @@ export default function App() {
         {page !== 'admin' && <Footer setPage={navigateTo} />}
 
         {/* Mobile Sticky Bottom Bar (BOOK APPOINTMENT) */}
-        {page !== 'admin' && (
+        {page !== 'admin' && page !== 'appointment' && (
           <div className="mobile-sticky-bottom-bar">
             <div className="mobile-sticky-grid" style={{ gridTemplateColumns: '1fr' }}>
               <button onClick={handleMobileBookClick} className="mobile-sticky-btn book">
