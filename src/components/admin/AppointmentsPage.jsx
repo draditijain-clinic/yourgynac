@@ -23,6 +23,13 @@ export default function AppointmentsPage() {
   // Accept Modal date/time proposed state
   const [acceptDate, setAcceptDate] = useState('');
   const [acceptTime, setAcceptTime] = useState('');
+  const [proposedMeetUrl, setProposedMeetUrl] = useState('');
+
+  const generateRandomMeetUrl = () => {
+    const chars = 'abcdefghijklmnopqrstuvwxyz';
+    const rPart = (len) => Array.from({length: len}, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+    return `https://meet.google.com/${rPart(3)}-${rPart(4)}-${rPart(3)}`;
+  };
 
   useEffect(() => {
     loadAppointments();
@@ -44,6 +51,11 @@ export default function AppointmentsPage() {
     setSelectedApt(apt);
     setAcceptDate(apt['Requested Date'] || '');
     setAcceptTime(apt['Requested Time'] || '');
+    if (String(apt['Consultation Type'] || '').toLowerCase().includes('online')) {
+      setProposedMeetUrl(generateRandomMeetUrl());
+    } else {
+      setProposedMeetUrl('');
+    }
     setAcceptModalOpen(true);
   };
 
@@ -394,6 +406,8 @@ export default function AppointmentsPage() {
                   <input
                     type="url"
                     name="meetUrl"
+                    value={proposedMeetUrl}
+                    onChange={(e) => setProposedMeetUrl(e.target.value)}
                     placeholder="Paste Google Meet URL here (e.g. https://meet.google.com/xxx-xxxx-xxx)"
                     style={{fontFamily:'monospace'}}
                   />
