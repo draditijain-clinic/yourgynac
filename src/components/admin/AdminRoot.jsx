@@ -7,7 +7,6 @@ import AvailabilityHolidays from './AvailabilityHolidays';
 import Patients from './Patients';
 import Messages from './Messages';
 import Settings from './Settings';
-import AdminLibrary from './AdminLibrary';
 import AdminReviews from './AdminReviews';
 import { adminApi } from '../../services/adminApi';
 
@@ -130,8 +129,6 @@ export default function AdminRoot({ setPage }) {
         return <AppointmentsPage />;
       case 'history':
         return <HistoryPage />;
-      case 'library':
-        return <AdminLibrary />;
       case 'holidays':
         return <AvailabilityHolidays activeView="holidays" />;
       case 'templates':

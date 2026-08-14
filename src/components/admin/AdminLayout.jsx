@@ -44,7 +44,6 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'appointments', label: 'Today & Pending', icon: Calendar },
     { id: 'history', label: 'History & All Bookings', icon: History },
-    { id: 'library', label: 'Health Library', icon: Video },
     { id: 'holidays', label: 'Holidays', icon: Palmtree },
     { id: 'settings', label: 'Settings', icon: Settings }
   ];

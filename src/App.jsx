@@ -785,13 +785,10 @@ export default function App() {
         
         {page !== 'admin' && <Footer setPage={navigateTo} />}
 
-        {/* Mobile Sticky Bottom Bar (CALL & BOOK APPOINTMENT) */}
+        {/* Mobile Sticky Bottom Bar (BOOK APPOINTMENT) */}
         {page !== 'admin' && (
           <div className="mobile-sticky-bottom-bar">
-            <div className="mobile-sticky-grid" style={{ gridTemplateColumns: '1fr 1fr' }}>
-              <a href={`tel:${API_CONFIG.PHONE}`} className="mobile-sticky-btn call">
-                <Phone size={15} style={{ marginRight: '6px' }} /> Call Clinic
-              </a>
+            <div className="mobile-sticky-grid" style={{ gridTemplateColumns: '1fr' }}>
               <button onClick={handleMobileBookClick} className="mobile-sticky-btn book">
                 <Calendar size={15} style={{ marginRight: '6px' }} /> Book Now
               </button>

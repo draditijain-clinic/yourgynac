@@ -391,7 +391,7 @@ export default function AppointmentForm({ setPage, setReservationData }) {
               </div>
             </div>
 
-            <div className="step-navigation-actions" style={{ marginTop: '40px' }}>
+            <div className="step-navigation-actions" style={{ marginTop: '40px', display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
               <button className="btn btn-outline" onClick={handlePrevStep} disabled={submitting}>
                 <ChevronLeft size={16} /> Back
               </button>
