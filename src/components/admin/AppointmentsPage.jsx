@@ -147,7 +147,13 @@ export default function AppointmentsPage() {
   };
 
   const filteredAppointments = appointments.filter(apt => {
-    if (filter !== 'ALL' && apt.Status !== filter) return false;
+    if (filter !== 'ALL') {
+      if (filter === 'CONFIRMED') {
+        if (apt.Status !== 'CONFIRMED' && apt.Status !== 'ACCEPTED') return false;
+      } else {
+        if (apt.Status !== filter) return false;
+      }
+    }
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
       return (
@@ -233,15 +239,15 @@ export default function AppointmentsPage() {
                   </div>
                   <div className="detail-col">
                     <span className="detail-label">
-                      {apt.Status === 'CONFIRMED' || apt.Status === 'COMPLETED' ? 'Meeting Time' : 'Requested Time'}
+                      {apt.Status === 'CONFIRMED' || apt.Status === 'ACCEPTED' || apt.Status === 'COMPLETED' ? 'Meeting Time' : 'Requested Time'}
                     </span>
                     <p className="detail-value flex-align" style={{ whiteSpace: 'nowrap' }}>
                       <CalendarIcon size={14} style={{ flexShrink: 0 }} /> 
-                      {apt.Status === 'CONFIRMED' || apt.Status === 'COMPLETED' ? apt['Confirmed Date'] : apt['Requested Date']}
+                      {apt.Status === 'CONFIRMED' || apt.Status === 'ACCEPTED' || apt.Status === 'COMPLETED' ? apt['Confirmed Date'] : apt['Requested Date']}
                     </p>
                     <p className="detail-value flex-align" style={{ whiteSpace: 'nowrap', marginTop: '4px' }}>
                       <Clock size={14} style={{ flexShrink: 0 }} /> 
-                      {apt.Status === 'CONFIRMED' || apt.Status === 'COMPLETED' ? apt['Confirmed Time'] : apt['Requested Time']}
+                      {apt.Status === 'CONFIRMED' || apt.Status === 'ACCEPTED' || apt.Status === 'COMPLETED' ? apt['Confirmed Time'] : apt['Requested Time']}
                     </p>
                   </div>
                   <div className="detail-col">
@@ -271,7 +277,7 @@ export default function AppointmentsPage() {
                         </button>
                       </>
                     )}
-                    {apt.Status === 'CONFIRMED' && (
+                    {(apt.Status === 'CONFIRMED' || apt.Status === 'ACCEPTED') && (
                       <>
                         {apt['Consultation Type'] === 'Online Consultation' && (
                           <a href={apt['Meet URL']} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
@@ -558,7 +564,7 @@ export default function AppointmentsPage() {
           letter-spacing: 1px;
         }
         .status-badge.pending { background-color: #fef3c7; color: #d97706; }
-        .status-badge.confirmed { background-color: #dcfce7; color: #166534; }
+        .status-badge.confirmed, .status-badge.accepted { background-color: #dcfce7; color: #166534; }
         .status-badge.completed { background-color: #f1f5f9; color: #475569; }
         .status-badge.rejected { background-color: #fee2e2; color: #b91c1c; }
 

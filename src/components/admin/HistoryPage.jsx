@@ -66,7 +66,13 @@ export default function HistoryPage() {
 
   const filteredBookings = bookings.filter(b => {
     // Status Filter
-    if (statusFilter !== 'ALL' && b.Status !== statusFilter) return false;
+    if (statusFilter !== 'ALL') {
+      if (statusFilter === 'CONFIRMED') {
+        if (b.Status !== 'CONFIRMED' && b.Status !== 'ACCEPTED') return false;
+      } else {
+        if (b.Status !== statusFilter) return false;
+      }
+    }
     
     // Date Filter
     if (dateFilter) {
@@ -90,7 +96,7 @@ export default function HistoryPage() {
 
   const getStatusBadge = (status) => {
     const s = String(status).toUpperCase();
-    if (s === 'CONFIRMED') return <span className="badge badge-success">CONFIRMED</span>;
+    if (s === 'CONFIRMED' || s === 'ACCEPTED') return <span className="badge badge-success">{s}</span>;
     if (s === 'PENDING') return <span className="badge badge-warning">PENDING</span>;
     if (s === 'CANCELLED' || s === 'REJECTED') return <span className="badge badge-danger">{s}</span>;
     if (s === 'COMPLETED') return <span className="badge badge-info">COMPLETED</span>;
