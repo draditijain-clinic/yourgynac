@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, Calendar, History, 
-  Palmtree, MessageSquare, Settings, LogOut, Menu, X, ChevronLeft, ChevronRight, Stethoscope, Video
+  Palmtree, MessageSquare, Settings, LogOut, Menu, X, ChevronLeft, ChevronRight, Stethoscope, Video, Clock, ExternalLink, FileSpreadsheet
 } from 'lucide-react';
 import { adminApi } from '../../services/adminApi';
 
@@ -9,10 +9,27 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(() => localStorage.getItem('admin_sidebar_collapsed') === 'true');
   const [currentDate, setCurrentDate] = useState('');
-
+  const [currentTime, setCurrentTime] = useState('');
+  const [greeting, setGreeting] = useState('Welcome');
+  
   useEffect(() => {
     const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     setCurrentDate(new Date().toLocaleDateString('en-US', options));
+    
+    // Hourly Greeting
+    const hour = new Date().getHours();
+    if (hour < 12) setGreeting('Good morning');
+    else if (hour < 17) setGreeting('Good afternoon');
+    else setGreeting('Good evening');
+
+    // Real-time Clock
+    const updateTime = () => {
+      const timeOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+      setCurrentTime(new Date().toLocaleTimeString('en-US', timeOpts));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const toggleCollapse = () => {
@@ -35,6 +52,18 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
   const handleLogout = () => {
     adminApi.logout();
     setPage('home'); // Redirect to public home
+  };
+
+  const handleOpenSheet = async () => {
+    try {
+      const res = await adminApi.getSheetUrl();
+      if (res && res.url) {
+        window.open(res.url, '_blank', 'noopener,noreferrer');
+      }
+    } catch (err) {
+      console.error('Failed to get sheet URL:', err);
+      alert('Could not open Google Sheet. Please check your connection.');
+    }
   };
 
   const handleNavClick = (id) => {
@@ -90,6 +119,22 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
               <p className="clinic-status">● Online</p>
             </div>
           )}
+          <button 
+            className="nav-btn google-sheet-btn" 
+            onClick={handleOpenSheet} 
+            title="Open Google Sheet"
+            style={{ 
+              display: 'flex', alignItems: 'center', gap: '10px', width: '100%',
+              padding: isCollapsed ? '10px' : '10px 14px', marginBottom: '6px',
+              background: '#e8f5e9', border: '1px solid #c8e6c9', borderRadius: '8px',
+              color: '#2e7d32', fontWeight: '600', fontSize: '0.82rem', cursor: 'pointer',
+              transition: 'all 0.2s ease', justifyContent: isCollapsed ? 'center' : 'flex-start'
+            }}
+          >
+            <FileSpreadsheet size={18} />
+            {!isCollapsed && <span>Open Google Sheet</span>}
+            {!isCollapsed && <ExternalLink size={13} style={{ marginLeft: 'auto', opacity: 0.6 }} />}
+          </button>
           <button className="logout-btn" onClick={handleLogout} title="Logout">
             <LogOut size={16} /> {!isCollapsed && "Logout"}
           </button>
@@ -105,11 +150,14 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
           </button>
           <div className="topbar-content">
             <div className="greeting">
-              <h2>Good evening, Dr. Aditi</h2>
-              <p>{currentDate}, Here's what's happening with your clinic today.</p>
+              <h2>{greeting}, Dr. Aditi</h2>
+              <p>{currentDate}. Here's what's happening with your clinic today.</p>
             </div>
             <div className="topbar-actions">
-              {/* Badges could go here */}
+              <div className="live-clock-card" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: '#fef2f2', border: '1px solid rgba(92,29,36,0.15)', borderRadius: '20px', color: 'var(--primary-color)', fontWeight: '700', fontSize: '0.9rem', boxShadow: '0 2px 8px rgba(92,29,36,0.04)' }}>
+                <Clock size={16} style={{ strokeWidth: '2.5px' }} />
+                <span>{currentTime}</span>
+              </div>
             </div>
           </div>
         </header>

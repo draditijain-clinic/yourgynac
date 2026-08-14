@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Play, ArrowLeft, ArrowUpRight, ExternalLink, Eye } from 'lucide-react';
 import { initialVideosData, formatStat } from '../data/videos';
+import SEO from './SEO';
 
 export default function HealthLibrary({ setPage }) {
   const [videos, setVideos] = useState([]);
@@ -101,6 +102,10 @@ export default function HealthLibrary({ setPage }) {
 
   return (
     <div className="health-library-wrapper">
+      <SEO 
+        title="Women's Health Library & Education | Dr. Aditi Jain"
+        description="Short, practical health education from Dr. Aditi Jain covering pregnancy, women's health, nutrition and common questions."
+      />
       {/* 1. HERO */}
       <section className="hl-hero">
         <div className="container hl-hero-content">
@@ -282,6 +287,18 @@ function VideoDetailView({ video, onBack, allVideos, onVideoClick, setPage }) {
 
   return (
     <div className="hl-detail-wrapper">
+      <SEO 
+        title={`${video.title} | Dr. Aditi Jain Health Library`}
+        description={video.description}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "name": video.title,
+          "description": video.description,
+          "thumbnailUrl": "https://bookmyslotclinic.com/images/p1.png",
+          "uploadDate": new Date().toISOString()
+        }}
+      />
       <div className="container hl-detail-container">
         
         {/* Breadcrumb */}

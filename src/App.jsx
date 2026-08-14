@@ -7,6 +7,7 @@ import Hero from './components/Hero';
 import Features from './components/Features';
 import Reviews from './components/Reviews';
 import FAQ from './components/FAQ';
+import FAQPage from './components/FAQPage';
 import About from './components/About';
 import Services from './components/Services';
 import OnlineConsultation from './components/OnlineConsultation';
@@ -18,6 +19,7 @@ import AdminRoot from './components/admin/AdminRoot';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import MedicalDisclaimer from './components/MedicalDisclaimer';
 import ClinicIntro from './components/ClinicIntro';
+import SEO from './components/SEO';
 
 import { ToastProvider } from './components/ToastNotification';
 
@@ -116,6 +118,26 @@ export default function App() {
 
   const renderHomeContent = () => (
     <>
+      <SEO 
+        title="Dr. Aditi Jain | Gynaecologist in Jaipur | Women's Health"
+        description="Dedicated, evidence-based, and private women's healthcare by Dr. Aditi Jain. Consultant Gynaecologist & Obstetrician near SMS Medical College area, Jaipur."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "Physician", "MedicalClinic"],
+          "name": "Dr. Aditi Jain Clinic",
+          "image": "https://bookmyslotclinic.com/images/p1.png",
+          "url": "https://bookmyslotclinic.com/",
+          "telephone": "+919999999999",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar",
+            "addressLocality": "Jaipur",
+            "addressRegion": "Rajasthan",
+            "postalCode": "302004",
+            "addressCountry": "IN"
+          }
+        }}
+      />
       <Hero setPage={navigateTo} />
       <ClinicIntro setPage={navigateTo} />
       <Features />
@@ -708,7 +730,7 @@ export default function App() {
       case 'library':
         return <HealthLibrary setPage={navigateTo} />;
       case 'faq':
-        return <FAQ />;
+        return <FAQPage setPage={navigateTo} />;
       case 'contact':
         return <Contact setPage={navigateTo} />;
       case 'appointment':
@@ -771,7 +793,7 @@ export default function App() {
                 <Phone size={15} style={{ marginRight: '6px' }} /> Call Clinic
               </a>
               <button onClick={handleMobileBookClick} className="mobile-sticky-btn book">
-                <Calendar size={15} style={{ marginRight: '6px' }} /> Book Call
+                <Calendar size={15} style={{ marginRight: '6px' }} /> Book Now
               </button>
             </div>
           </div>

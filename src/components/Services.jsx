@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Calendar } from 'lucide-react';
+import SEO from './SEO';
 
 export default function Services({ setPage }) {
   const services = [
@@ -162,6 +163,16 @@ export default function Services({ setPage }) {
 
   return (
     <section className="services-section">
+      <SEO 
+        title="Gynaecology, Maternity & Fertility Services | Dr. Aditi Jain"
+        description="Comprehensive, evidence-based diagnostic and treatment services suited for every stage of a woman's life in Jaipur."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalSpecialty",
+          "name": "Obstetrics and Gynaecology",
+          "url": "https://bookmyslotclinic.com/services"
+        }}
+      />
       <div className="container">
         
         <div className="section-header fade-in-down">

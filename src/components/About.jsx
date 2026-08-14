@@ -1,9 +1,24 @@
 import React from 'react';
 import { API_CONFIG } from '../config';
+import SEO from './SEO';
 
 export default function About({ setPage }) {
   return (
     <section className="about-section">
+      <SEO 
+        title="Dr. Aditi Jain | MBBS, MS OBGY | Gynaecologist in Jaipur"
+        description="Learn about Dr. Aditi Jain, a consultant obstetrician and gynaecologist specializing in maternal care, high-risk pregnancies, and reproductive endocrinology."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Dr. Aditi Jain",
+          "jobTitle": "Consultant Obstetrician & Gynaecologist",
+          "alumniOf": "SMS Medical College, Jaipur",
+          "url": "https://bookmyslotclinic.com/about",
+          "image": "https://bookmyslotclinic.com/images/p2.png",
+          "knowsAbout": ["Gynaecology", "Obstetrics", "High-Risk Pregnancy", "PCOS/PCOD", "Laparoscopic Surgery"]
+        }}
+      />
       <div className="container">
         
         {/* Editorial Profile Header */}
@@ -65,6 +80,18 @@ export default function About({ setPage }) {
               <h3>Clinical Interests</h3>
               <p>Dr. Aditi's key clinical interests include adolescent health guidance, menopause transitioning management, reproductive health education, and evidence-based PCOS correction protocols. She is active in clinical research and educational publishing.</p>
             </div>
+
+            <div className="profile-block">
+              <h3>At a Glance</h3>
+              <ul className="details-bullet-list">
+                <li><strong>Location:</strong> Jaipur, Rajasthan, India</li>
+                <li><strong>Clinic:</strong> Basement C, 99 Shivaji Marg, Tilak Nagar, Jaipur</li>
+                <li><strong>Consultation:</strong> In-person & Online Video Consultations</li>
+                <li><strong>Languages:</strong> English, Hindi</li>
+                <li><strong>Specialty:</strong> Obstetrics & Gynaecology</li>
+              </ul>
+            </div>
+
 
 
           </div>

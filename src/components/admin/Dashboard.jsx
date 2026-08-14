@@ -53,10 +53,36 @@ export default function Dashboard({ setActiveTab }) {
   // Helper: Format time nicely in 12-hour format
   const formatTime12Hour = (time24) => {
     if (!time24) return '';
-    const parts = time24.split(':');
-    if (parts.length < 2) return time24;
-    let hh = parseInt(parts[0], 10);
-    const mm = parts[1];
+    const str = String(time24).trim();
+    
+    // ISO format or full date-time string
+    if (str.includes('T') || str.includes(' ')) {
+      try {
+        const d = new Date(str);
+        if (!isNaN(d.getTime())) {
+          let hh = d.getHours();
+          const mm = String(d.getMinutes()).padStart(2, '0');
+          const ampm = hh >= 12 ? 'PM' : 'AM';
+          hh = hh % 12 || 12;
+          return `${hh}:${mm} ${ampm}`;
+        }
+      } catch (_) {}
+    }
+    
+    const parts = str.split(':');
+    if (parts.length < 2) return str;
+    
+    let hourPart = parts[0];
+    if (hourPart.includes('T')) {
+      hourPart = hourPart.split('T')[1];
+    } else if (hourPart.includes(' ')) {
+      hourPart = hourPart.split(' ')[1];
+    }
+    
+    let hh = parseInt(hourPart, 10);
+    const mm = parts[1].substring(0, 2);
+    if (isNaN(hh)) return str;
+    
     const ampm = hh >= 12 ? 'PM' : 'AM';
     hh = hh % 12 || 12;
     return `${hh}:${mm} ${ampm}`;
@@ -355,7 +381,7 @@ export default function Dashboard({ setActiveTab }) {
                       </div>
                     </div>
 
-                    <div className="apt-meta-info" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginBottom: '15px' }}>
+                    <div className="apt-meta-info" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginBottom: '10px' }}>
                       {isOnline ? (
                         <span className="type-badge online">
                           <VideoIcon size={14} /> Online
@@ -366,7 +392,15 @@ export default function Dashboard({ setActiveTab }) {
                         </span>
                       )}
                       
-                      <span className="info-text">{apt['Phone']}</span>
+                      <span className="info-text" style={{ fontWeight: '600' }}>{apt['Phone']}</span>
+                    </div>
+
+                    {/* Rich Details Grid */}
+                    <div className="apt-details-subgrid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '8px', padding: '10px', background: '#f8fafc', borderRadius: '6px', marginBottom: '15px', border: '1px solid #e2e8f0', fontSize: '0.8rem' }}>
+                      <div><span style={{ color: '#64748b', fontWeight: '500' }}>Booking ID:</span> <span style={{ fontFamily: 'monospace', color: 'var(--primary-color)', fontWeight: '600' }}>{apt['Booking ID'] || apt.bookingId}</span></div>
+                      {apt['Age'] && <div><span style={{ color: '#64748b', fontWeight: '500' }}>Age:</span> <span style={{ fontWeight: '600' }}>{apt['Age'] || apt.age} years</span></div>}
+                      {apt['Email'] && <div style={{ gridColumn: 'span 1' }}><span style={{ color: '#64748b', fontWeight: '500' }}>Email:</span> <span style={{ fontWeight: '600' }}>{apt['Email'] || apt.email}</span></div>}
+                      {apt['Admin Note'] && <div style={{ gridColumn: '1 / -1', borderTop: '1px dashed #e2e8f0', paddingTop: '6px', marginTop: '2px' }}><span style={{ color: '#64748b', fontWeight: '500' }}>Coordinator Note:</span> <span style={{ fontWeight: '600', color: '#1e293b' }}>{apt['Admin Note'] || apt.adminNote}</span></div>}
                     </div>
 
                     {/* Quick Reschedule & Messaging Actions */}

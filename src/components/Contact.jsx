@@ -1,10 +1,15 @@
 import React from 'react';
 import { MapPin, Phone, MessageSquare, Instagram, Mail, Calendar, Navigation, Clock } from 'lucide-react';
 import { API_CONFIG } from '../config';
+import SEO from './SEO';
 
 export default function Contact({ setPage }) {
   return (
     <section className="contact-page-section">
+      <SEO 
+        title="Contact Dr. Aditi Jain | Clinic Location & Appointment Booking"
+        description={`Book an appointment with Dr. Aditi Jain at ${API_CONFIG.CLINIC_FACILITY}, Jaipur. View our location, contact details, and clinic timings.`}
+      />
       <div className="container contact-grid fade-in-down">
         
         {/* Contact info details */}

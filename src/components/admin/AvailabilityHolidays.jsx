@@ -3,14 +3,58 @@ import { Palmtree, Clock, Plus, Trash2, Save } from 'lucide-react';
 import { adminApi } from '../../services/adminApi';
 
 export default function AvailabilityHolidays({ activeView }) {
-  const [view, setView] = useState(activeView || 'holidays'); // 'availability' or 'holidays'
+  const [view, setView] = useState(activeView || 'holidays');
   const [holidays, setHolidays] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [newHoliday, setNewHoliday] = useState({ dateFrom: '', dateTo: '', reason: '' });
+  
+  const defaultSchedule = {
+    Monday: { isOpen: true, start: "17:00", end: "20:00" },
+    Tuesday: { isOpen: true, start: "17:00", end: "20:00" },
+    Wednesday: { isOpen: true, start: "17:00", end: "20:00" },
+    Thursday: { isOpen: true, start: "17:00", end: "20:00" },
+    Friday: { isOpen: true, start: "17:00", end: "20:00" },
+    Saturday: { isOpen: true, start: "17:00", end: "20:00" },
+    Sunday: { isOpen: false, start: "10:00", end: "13:00" }
+  };
+  
+  const [schedule, setSchedule] = useState(defaultSchedule);
 
   React.useEffect(() => {
     loadHolidays();
+    loadSettings();
   }, []);
+
+  const loadSettings = async () => {
+    try {
+      const res = await adminApi.getSettings();
+      if (res && res.AVAILABILITY_SCHEDULE) {
+        setSchedule(JSON.parse(res.AVAILABILITY_SCHEDULE));
+      }
+    } catch (err) {
+      console.error("Failed to load schedule", err);
+    }
+  };
+
+  const handleSaveSchedule = async () => {
+    setSaving(true);
+    try {
+      await adminApi.saveSettings({ AVAILABILITY_SCHEDULE: JSON.stringify(schedule) });
+      alert("Availability schedule saved successfully!");
+    } catch (err) {
+      alert("Failed to save schedule: " + err.message);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const updateDaySchedule = (day, field, value) => {
+    setSchedule(prev => ({
+      ...prev,
+      [day]: { ...prev[day], [field]: value }
+    }));
+  };
 
   const loadHolidays = async () => {
     setLoading(true);
@@ -73,43 +117,43 @@ export default function AvailabilityHolidays({ activeView }) {
         {view === 'availability' && (
           <div className="availability-card">
             <h3>Standard Weekly Availability</h3>
-            <p className="subtext">Configure default operating hours. Sundays are closed by default.</p>
+            <p className="subtext">Configure default operating hours. Slots are automatically generated in 30-minute intervals.</p>
             
             <div className="days-list">
-              {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map(day => (
+              {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(day => (
                 <div key={day} className="day-row">
                   <div className="day-name">{day}</div>
                   <div className="day-status">
                     <label className="toggle-switch">
-                      <input type="checkbox" defaultChecked />
+                      <input 
+                        type="checkbox" 
+                        checked={schedule[day].isOpen} 
+                        onChange={(e) => updateDaySchedule(day, 'isOpen', e.target.checked)}
+                      />
                       <span className="slider round"></span>
                     </label>
                   </div>
-                  <div className="day-times">
-                    <input type="time" defaultValue="17:00" />
+                  <div className={`day-times ${!schedule[day].isOpen ? 'disabled' : ''}`}>
+                    <input 
+                      type="time" 
+                      value={schedule[day].start} 
+                      disabled={!schedule[day].isOpen}
+                      onChange={(e) => updateDaySchedule(day, 'start', e.target.value)}
+                    />
                     <span>to</span>
-                    <input type="time" defaultValue="20:00" />
+                    <input 
+                      type="time" 
+                      value={schedule[day].end} 
+                      disabled={!schedule[day].isOpen}
+                      onChange={(e) => updateDaySchedule(day, 'end', e.target.value)}
+                    />
                   </div>
                 </div>
               ))}
-              <div className="day-row">
-                <div className="day-name">Sunday</div>
-                <div className="day-status">
-                  <label className="toggle-switch">
-                    <input type="checkbox" />
-                    <span className="slider round"></span>
-                  </label>
-                </div>
-                <div className="day-times disabled">
-                  <input type="time" disabled />
-                  <span>to</span>
-                  <input type="time" disabled />
-                </div>
-              </div>
             </div>
 
-            <button className="btn btn-primary" style={{marginTop: '20px'}}>
-              <Save size={16} style={{marginRight: '6px'}} /> SAVE AVAILABILITY
+            <button className="btn btn-primary" style={{marginTop: '20px'}} onClick={handleSaveSchedule} disabled={saving}>
+              <Save size={16} style={{marginRight: '6px'}} /> {saving ? 'SAVING...' : 'SAVE AVAILABILITY'}
             </button>
           </div>
         )}

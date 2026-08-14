@@ -149,6 +149,10 @@ export const adminApi = {
   
   getSettings: () => apiGet('getSettings'),
   
+  saveSettings: (settings) => apiPost({ action: 'saveSettings', settings }),
+  
+  getSheetUrl: () => apiGet('getSheetUrl'),
+  
   acceptBooking: (bookingId, confirmedDate, confirmedTime, duration, adminName, meetUrl) => {
     return apiPost({
       action: 'acceptBooking',
