@@ -191,7 +191,7 @@ export default function AppointmentsPage() {
             <Filter size={18} color="var(--text-light)" style={{marginRight: '8px'}} />
             <select value={filter} onChange={(e) => setFilter(e.target.value)}>
               <option value="PENDING">Pending Requests</option>
-              <option value="CONFIRMED">Confirmed</option>
+              <option value="CONFIRMED">Accepted</option>
               <option value="COMPLETED">Completed</option>
               <option value="ALL">All Appointments</option>
             </select>

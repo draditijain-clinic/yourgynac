@@ -132,7 +132,7 @@ export default function HistoryPage() {
           <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
             <option value="ALL">All Statuses</option>
             <option value="PENDING">Pending</option>
-            <option value="CONFIRMED">Confirmed</option>
+            <option value="CONFIRMED">Accepted</option>
             <option value="COMPLETED">Completed</option>
             <option value="CANCELLED">Cancelled</option>
             <option value="REJECTED">Rejected</option>
