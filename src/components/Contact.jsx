@@ -7,16 +7,31 @@ export default function Contact({ setPage }) {
   return (
     <section className="contact-page-section">
       <SEO 
-        title="Contact Dr. Aditi Jain | Clinic Location & Appointment Booking"
-        description={`Book an appointment with Dr. Aditi Jain at ${API_CONFIG.CLINIC_FACILITY}, Jaipur. View our location, contact details, and clinic timings.`}
+        title="Dr. Aditi Jain Clinic | Tilak Nagar, Jaipur"
+        description="Find Dr. Aditi Jain at Agarwal Clinic, Tilak Nagar, Jaipur. Call, WhatsApp or get directions for your appointment."
+        path="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalClinic",
+          "name": "Dr. Aditi Jain Clinic",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar",
+            "addressLocality": "Jaipur",
+            "addressRegion": "Rajasthan",
+            "postalCode": "302004",
+            "addressCountry": "IN"
+          },
+          "telephone": "+917296897975"
+        }}
       />
       <div className="container contact-grid fade-in-down">
         
         {/* Contact info details */}
         <div className="contact-info-panel">
-          <span className="eyebrow">GET IN TOUCH</span>
-          <h2>Clinic Location & Timings</h2>
-          <p className="contact-desc">Please feel free to connect with our coordinator via email or Instagram. Walk-ins are accepted during slot timings, but online appointments are prioritized.</p>
+          <span className="eyebrow">JAIPUR CLINIC LOCATION</span>
+          <h2>Visit the clinic in Jaipur</h2>
+          <p className="contact-desc">Dr. Aditi Jain consults patients at Agarwal Clinic in Tilak Nagar, Jaipur. Request an in-clinic appointment or an online video consultation.</p>
 
           <div className="info-list">
             

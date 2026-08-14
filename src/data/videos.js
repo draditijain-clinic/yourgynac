@@ -1,8 +1,10 @@
 export const initialVideosData = [
   {
     id: "anomaly-scan",
-    title: "5 Questions to Ask During Your Anomaly Scan",
-    shortDescription: "Going for your 20–22 week anomaly scan? Here are some important questions you can discuss with your doctor about your baby's growth and the scan.",
+    slug: "anomaly-scan-questions",
+    title: "What should I ask during my anomaly scan?",
+    shortDescription: "Going for your 20–22 week anomaly scan? Here are important questions to discuss with your doctor regarding fetal growth, placental position, and organ development.",
+    quickAnswer: "An anomaly scan (around 20–22 weeks) assesses baby growth and anatomy. Key questions include checking placental position, baby growth measurements, amniotic fluid levels, and structural anatomical development.",
     category: "PREGNANCY",
     topic: "Anomaly Scan",
     instagramUrl: "https://www.instagram.com/reel/Da8L92zTbaO/",
@@ -17,12 +19,15 @@ export const initialVideosData = [
     published: true,
     displayOrder: 1,
     doctorReviewed: true,
+    author: "Dr. Aditi Jain",
     publishedDate: "2026-08-10"
   },
   {
     id: "baby-flutters",
-    title: "Those First Baby Flutters: What Do They Feel Like?",
-    shortDescription: "Those first little movements can feel like tiny flutters or butterflies. Learn more about what early fetal movement may feel like.",
+    slug: "first-baby-flutters",
+    title: "What do first baby flutters actually feel like?",
+    shortDescription: "Those first little fetal movements can feel like light flutters, bubbles, or gentle taps. Learn when to expect them and what is normal.",
+    quickAnswer: "Early baby movements are often described as light fluttering, bubbles or gentle taps. Many people begin noticing them around the middle of pregnancy (18–22 weeks), although timing varies.",
     category: "PREGNANCY",
     topic: "Baby Movements",
     instagramUrl: "https://www.instagram.com/reel/DaxzJVgzDkV/",
@@ -37,19 +42,22 @@ export const initialVideosData = [
     published: true,
     displayOrder: 2,
     doctorReviewed: true,
+    author: "Dr. Aditi Jain",
     publishedDate: "2026-08-11"
   },
   {
     id: "pregnancy-breakfast",
-    title: "What Should You Eat for Breakfast During Pregnancy?",
-    shortDescription: "A balanced pregnancy breakfast can include protein, fibre, healthy fats and fruits or vegetables. Explore practical nutrition guidance from Dr. Aditi Jain.",
+    slug: "pregnancy-breakfast",
+    title: "What should you eat for breakfast during pregnancy?",
+    shortDescription: "A balanced pregnancy breakfast includes protein, complex carbs, healthy fats, and fruits or vegetables to maintain steady energy levels.",
+    quickAnswer: "A healthy pregnancy breakfast balances complex carbohydrates, protein, healthy fats, and hydration to manage blood sugar and morning nausea effectively.",
     category: "PREGNANCY NUTRITION",
     topic: "Pregnancy Diet",
     instagramUrl: "https://www.instagram.com/reel/DZmIW_9T53j/",
     videoUrl: "/reels/reel 4.mp4",
     thumbnailUrl: "/images/eat.png",
     duration: "00:40",
-    views: 1100000, // 1.1M views
+    views: 1100000,
     likes: 45000,
     comments: 1800,
     shares: 12000,
@@ -57,12 +65,15 @@ export const initialVideosData = [
     published: true,
     displayOrder: 3,
     doctorReviewed: true,
+    author: "Dr. Aditi Jain",
     publishedDate: "2026-08-12"
   },
   {
     id: "dangerous-items",
-    title: "Everyday items dangerous in pregnancy",
-    shortDescription: "Some everyday household items and products can pose safety concerns during pregnancy. Find out what items to avoid or handle with caution.",
+    slug: "everyday-items-pregnancy",
+    title: "Everyday items to be careful about during pregnancy",
+    shortDescription: "Certain household products and food items require caution during pregnancy. Learn what items to avoid or handle with extra safety.",
+    quickAnswer: "Certain harsh chemical cleansers, high-mercury fish, unpasteurized dairy, and unverified herbal supplements should be avoided or handled with extra care during pregnancy.",
     category: "PREGNANCY SAFETY",
     topic: "Pregnancy Safety",
     instagramUrl: "https://www.instagram.com/reel/DYEe2GsTiYg/",
@@ -77,12 +88,15 @@ export const initialVideosData = [
     published: true,
     displayOrder: 4,
     doctorReviewed: true,
+    author: "Dr. Aditi Jain",
     publishedDate: "2026-08-13"
   },
   {
     id: "partner-support",
-    title: "Should Your Husband Be in the Delivery Room?",
-    shortDescription: "Can having your husband or partner with you during labour affect your experience? This video discusses research and considerations around partner support during labour.",
+    slug: "delivery-room-partner",
+    title: "Should your husband be in the delivery room?",
+    shortDescription: "Exploring the emotional, physical, and medical aspects of having your partner present during labour and childbirth.",
+    quickAnswer: "Having a supportive partner in the delivery room can reduce anxiety, provide physical comfort, and enhance emotional reassurance during labor and birth.",
     category: "LABOUR & DELIVERY",
     topic: "Partner Support During Labour",
     instagramUrl: "https://www.instagram.com/reel/DXn9LvHk9Fb/",
@@ -97,6 +111,7 @@ export const initialVideosData = [
     published: true,
     displayOrder: 5,
     doctorReviewed: true,
+    author: "Dr. Aditi Jain",
     publishedDate: "2026-08-14"
   }
 ];

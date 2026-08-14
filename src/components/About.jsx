@@ -6,16 +6,17 @@ export default function About({ setPage }) {
   return (
     <section className="about-section">
       <SEO 
-        title="Dr. Aditi Jain | MBBS, MS OBGY | Gynaecologist in Jaipur"
-        description="Learn about Dr. Aditi Jain, a consultant obstetrician and gynaecologist specializing in maternal care, high-risk pregnancies, and reproductive endocrinology."
+        title="About Dr. Aditi Jain | MBBS, MS OBGY | Jaipur"
+        description="Dr. Aditi Jain is a gynaecologist in Jaipur with an MBBS and MS OBGY qualification from SMS Medical College, Jaipur. Her practice focuses on personalised women's healthcare."
+        path="/about"
         schema={{
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Dr. Aditi Jain",
           "jobTitle": "Consultant Obstetrician & Gynaecologist",
           "alumniOf": "SMS Medical College, Jaipur",
-          "url": "https://bookmyslotclinic.com/about",
-          "image": "https://bookmyslotclinic.com/images/p2.png",
+          "url": "https://yourgynac.vercel.app/about",
+          "image": "https://yourgynac.vercel.app/images/p2.png",
           "knowsAbout": ["Gynaecology", "Obstetrics", "High-Risk Pregnancy", "PCOS/PCOD", "Laparoscopic Surgery"]
         }}
       />
@@ -24,16 +25,16 @@ export default function About({ setPage }) {
         {/* Editorial Profile Header */}
         <div className="profile-header fade-in-down">
           <div className="profile-photo-frame">
-            <img src="/images/p2.png" alt="Dr. Aditi Jain clinical consultant" />
+            <img src="/images/p2.png" alt="Dr. Aditi Jain gynaecologist in Jaipur" />
           </div>
           <div className="profile-intro-details">
-            <span className="profile-eyebrow">OBSTETRICS & GYNAECOLOGY</span>
-            <h2>{API_CONFIG.DOCTOR_NAME}</h2>
-            <p className="profile-credentials">{API_CONFIG.QUALIFICATIONS}</p>
-            <p className="profile-spec">{API_CONFIG.SPECIALTY}</p>
+            <span className="profile-eyebrow">SMS MEDICAL COLLEGE ALUMNA</span>
+            <h2>Meet Dr. Aditi Jain</h2>
+            <p className="profile-credentials">MBBS · MS OBGY (SMS Medical College, Jaipur)</p>
+            <p className="profile-spec">Gynaecologist & Laparoscopic Gynaecological Surgeon</p>
             <p className="profile-tagline">Providing private, patient-centred medical consultations built on clear communication and clinical evidence.</p>
             <button className="btn btn-primary" onClick={() => setPage('appointment')} style={{ marginTop: '20px' }}>
-              Book Appointment
+              BOOK A CONSULTATION
             </button>
           </div>
         </div>
@@ -43,8 +44,8 @@ export default function About({ setPage }) {
           
           <div className="profile-col-left">
             <div className="profile-block">
-              <h3>About the Doctor</h3>
-              <p>Dr. Aditi Jain is a consultant obstetrician and gynaecologist specializing in maternal care, high-risk pregnancies, minimal invasive gynaecological procedures, and reproductive endocrinology. With years of experience in clinical practice, she is dedicated to helping women navigate their health choices at every stage of life.</p>
+              <h3>About Dr. Aditi Jain</h3>
+              <p>Dr. Aditi Jain is a gynaecologist in Jaipur with an MBBS and MS OBGY qualification from SMS Medical College, Jaipur. Her practice focuses on personalised women's healthcare, clear communication and helping patients understand their concerns and treatment options.</p>
             </div>
 
             <div className="profile-block">

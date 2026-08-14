@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /assets/
+Disallow: /admin
 Disallow: /admin/
-Disallow: /*?*
+Disallow: /api/
+Disallow: /private/
 
-Sitemap: https://bookmyslotclinic.com/sitemap.xml
+Sitemap: https://yourgynac.vercel.app/sitemap.xml

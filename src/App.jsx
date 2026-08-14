@@ -121,26 +121,171 @@ export default function App() {
     <>
       <SEO 
         title="Dr. Aditi Jain | Gynaecologist in Jaipur | Women's Health"
-        description="Dedicated, evidence-based, and private women's healthcare by Dr. Aditi Jain. Consultant Gynaecologist & Obstetrician near SMS Medical College area, Jaipur."
+        description="Dr. Aditi Jain is a gynaecologist in Jaipur offering personalised women's health, pregnancy and gynaecological consultations at Agarwal Clinic, Tilak Nagar."
+        path="/"
         schema={{
           "@context": "https://schema.org",
-          "@type": ["LocalBusiness", "Physician", "MedicalClinic"],
-          "name": "Dr. Aditi Jain Clinic",
-          "image": "https://bookmyslotclinic.com/images/p1.png",
-          "url": "https://bookmyslotclinic.com/",
-          "telephone": "+919999999999",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar",
-            "addressLocality": "Jaipur",
-            "addressRegion": "Rajasthan",
-            "postalCode": "302004",
-            "addressCountry": "IN"
-          }
+          "@graph": [
+            {
+              "@type": ["Physician", "MedicalClinic", "LocalBusiness"],
+              "@id": "https://yourgynac.vercel.app/#clinic",
+              "name": "Dr. Aditi Jain – Women's Clinic",
+              "image": "https://yourgynac.vercel.app/images/p1.png",
+              "url": "https://yourgynac.vercel.app/",
+              "telephone": "+917296897975",
+              "priceRange": "₹₹",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar",
+                "addressLocality": "Jaipur",
+                "addressRegion": "Rajasthan",
+                "postalCode": "302004",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 26.8995079,
+                "longitude": 75.8315183
+              },
+              "medicalSpecialty": [
+                "Obstetrics",
+                "Gynecology",
+                "Laparoscopic Surgery"
+              ],
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "17:00",
+                "closes": "20:00"
+              }
+            }
+          ]
         }}
       />
       <Hero setPage={navigateTo} />
       <ClinicIntro setPage={navigateTo} />
+
+      {/* SECTION: What Can I Consult For */}
+      <section className="consult-for-section" style={{ backgroundColor: 'var(--white)', padding: '90px 0' }}>
+        <div className="container">
+          <div className="section-header" style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 50px auto' }}>
+            <span className="tagline">Clinical Consultation Areas</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', color: 'var(--primary-color)', marginBottom: '15px' }}>What can I consult for?</h2>
+            <p style={{ color: 'var(--text-light)', fontSize: '1.05rem', lineHeight: '1.6' }}>Every woman's concerns are different. Explore some of the areas Dr. Aditi Jain may be able to help with.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+            {[
+              { title: "PCOS / PCOD", desc: "Comprehensive evaluation and lifestyle guidance for irregular periods, hormonal imbalance, and metabolic concerns." },
+              { title: "Period & Menstrual Concerns", desc: "Evaluations for painful cycles, heavy flow, dysmenorrhea, and irregular menstrual timing." },
+              { title: "Pregnancy & Antenatal Care", desc: "Personalised prenatal checks, high-risk pregnancy monitoring, and maternal health guidance." },
+              { title: "Fertility & Pre-conception", desc: "Pre-conception counseling, follicular tracking, and reproductive health screenings." },
+              { title: "Women's Hormonal Health", desc: "Diagnostic assessments for hormonal fluctuations, thyroid-related issues, and mood shifts." },
+              { title: "Pelvic & Vaginal Health", desc: "Treatment for pelvic discomfort, vaginal infections, discharge, and intimate wellness." },
+              { title: "Menopause & Midlife Health", desc: "Guidance for perimenopause transitions, hot flashes, bone health, and midlife wellness." },
+              { title: "General Gynaecological Consultation", desc: "Routine check-ups, preventive screenings, and confidential consultations for any concern." },
+              { title: "Laparoscopic Gynaecological Care", desc: "Minimally invasive diagnostic evaluations for fibroids, cysts, and pelvic health." }
+            ].map((item, idx) => (
+              <div key={idx} style={{ background: 'var(--bg-color)', border: '1px solid #f1ece1', padding: '30px', borderRadius: 'var(--border-radius)', display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', color: 'var(--primary-color)', marginBottom: '10px' }}>{item.title}</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', lineHeight: '1.6', marginBottom: '20px', flexGrow: 1 }}>{item.desc}</p>
+                <button 
+                  className="btn btn-outline" 
+                  onClick={() => navigateTo('appointment')}
+                  style={{ fontSize: '0.82rem', padding: '8px 16px', alignSelf: 'flex-start' }}
+                >
+                  BOOK CONSULTATION
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: Not Sure Where to Start */}
+      <section style={{ backgroundColor: 'var(--accent-light)', padding: '90px 0' }}>
+        <div className="container">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '45px' }}>
+            <span className="tagline">Patient Guidance</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', color: 'var(--primary-color)' }}>Not sure where to start?</h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+            {[
+              { label: "My periods are irregular", target: "services" },
+              { label: "I'm worried about PCOS", target: "library" },
+              { label: "I'm planning a pregnancy", target: "services" },
+              { label: "I'm pregnant", target: "appointment" },
+              { label: "I have a women's health concern", target: "consultation" },
+              { label: "I just want to ask a question", target: "contact" }
+            ].map((card, i) => (
+              <div 
+                key={i} 
+                onClick={() => navigateTo(card.target)}
+                style={{
+                  background: 'var(--white)',
+                  padding: '24px',
+                  borderRadius: '12px',
+                  border: '1px solid #e2d9cd',
+                  cursor: 'pointer',
+                  textAlign: 'center',
+                  fontWeight: '600',
+                  color: 'var(--primary-color)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  transition: 'var(--transition-smooth)'
+                }}
+              >
+                <span>{card.label}</span>
+                <ArrowRight size={16} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: Why Patients Choose A Consultation */}
+      <section style={{ backgroundColor: 'var(--white)', padding: '90px 0' }}>
+        <div className="container">
+          <div className="section-header" style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 50px auto' }}>
+            <span className="tagline">Consultation Approach</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', color: 'var(--primary-color)' }}>A consultation should feel like a conversation.</h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
+            {[
+              { title: "LISTENING FIRST", desc: "Time to explain what's bothering you without feeling rushed." },
+              { title: "CLEAR EXPLANATIONS", desc: "Understand your symptoms, questions and next steps in simple language." },
+              { title: "PRIVATE & RESPECTFUL", desc: "A comfortable space to discuss personal women's health concerns." },
+              { title: "ONLINE OR IN-CLINIC", desc: "Choose the consultation format that works better for you." }
+            ].map((c, idx) => (
+              <div key={idx} style={{ background: 'var(--bg-color)', padding: '30px', borderRadius: 'var(--border-radius)', border: '1px solid #f1ece1', textAlign: 'left' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-color)', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>{c.title}</span>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-color)', lineHeight: '1.6', margin: 0 }}>"{c.desc}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: Women's Healthcare in Jaipur (Local SEO) */}
+      <section style={{ backgroundColor: 'var(--bg-color)', borderTop: '1px solid #f1ece1', borderBottom: '1px solid #f1ece1', padding: '80px 0' }}>
+        <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
+          <span className="tagline">Local Care in Jaipur</span>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', color: 'var(--primary-color)', marginBottom: '15px' }}>Women's healthcare in Jaipur</h2>
+          <p style={{ fontSize: '1.05rem', color: 'var(--text-light)', lineHeight: '1.7', marginBottom: '30px' }}>
+            Looking for a gynaecologist in Jaipur? Dr. Aditi Jain provides personalised women's health consultations at Agarwal Clinic in Tilak Nagar, Jaipur, with online consultation options for patients who prefer to consult from home.
+          </p>
+          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={API_CONFIG.MAPS_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <Navigation size={16} /> GET DIRECTIONS
+            </a>
+            <button className="btn btn-primary" onClick={() => navigateTo('appointment')}>
+              <Calendar size={16} /> BOOK CONSULTATION
+            </button>
+          </div>
+        </div>
+      </section>
+
       <Features />
 
       {/* HOME SECTION 3: Educational Preview */}

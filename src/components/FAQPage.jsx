@@ -7,24 +7,40 @@ export default function FAQPage({ setPage }) {
 
   const faqs = [
     {
-      question: "Which gynecologist should I consult in Jaipur?",
-      answer: "Dr. Aditi Jain is highly recommended in Jaipur for her expertise in obstetrics, gynaecology, high-risk pregnancies, and PCOS management. She provides evidence-based, compassionate care at her clinic in Tilak Nagar."
+      question: "Who is Dr. Aditi Jain?",
+      answer: "Dr. Aditi Jain is a Consultant Obstetrician & Gynaecologist in Jaipur with MBBS and MS OBGY qualifications from SMS Medical College, Jaipur, specializing in women's health, pregnancy care, and laparoscopic gynaecological surgery."
+    },
+    {
+      question: "Where is Dr. Aditi Jain's clinic?",
+      answer: "Dr. Aditi Jain consults at Agarwal Clinic, located at Basement C, 99 Shivaji Marg, Tilak Nagar, Jaipur, Rajasthan 302004."
     },
     {
       question: "How do I book an appointment?",
-      answer: "You can easily book an appointment online through our website by selecting your preferred date and time, or by calling our clinic directly."
+      answer: "You can request an appointment online through the booking page on this website or contact the clinic directly via phone or WhatsApp at +91 72968 97975."
     },
     {
-      question: "Do you offer online video consultations?",
-      answer: "Yes, Dr. Aditi Jain provides secure online video consultations. You can select the 'Online Video Consultation' option while booking your appointment."
+      question: "Does Dr. Aditi Jain offer online consultation?",
+      answer: "Yes, Dr. Aditi Jain offers secure online video consultations for patients who prefer to consult from home, review reports, or require follow-ups."
     },
     {
-      question: "What should I bring for my first pregnancy consultation?",
-      answer: "Please bring any previous medical records, past ultrasound reports, blood test results, and a list of any medications or supplements you are currently taking."
+      question: "How does online consultation work?",
+      answer: "After requesting an online slot, your request is reviewed by the clinic coordinator. Upon confirmation, you receive confirmation details and a Google Meet link to join the video session at your scheduled time."
     },
     {
-      question: "What is the best treatment for PCOS/PCOD?",
-      answer: "PCOS treatment is highly individualized. It typically involves a combination of lifestyle modifications, metabolic tracking, and sometimes medication to regulate cycles and manage symptoms. Dr. Aditi Jain specializes in evidence-based PCOS correction protocols."
+      question: "Which women's health concerns can I discuss?",
+      answer: "You can consult for PCOS/PCOD management, period and menstrual irregularities, pregnancy and antenatal care, pre-conception planning, hormonal imbalances, pelvic health, menopause transitions, and general gynaecological concerns."
+    },
+    {
+      question: "Where is Agarwal Clinic in Jaipur?",
+      answer: "Agarwal Clinic is located in Tilak Nagar (Suraj Nagar area), Jaipur, conveniently accessible via Shivaji Marg."
+    },
+    {
+      question: "How can I contact the clinic?",
+      answer: "You can call or WhatsApp the clinic at +91 72968 97975 or email draditijainclinic96@gmail.com."
+    },
+    {
+      question: "Can I request an evening appointment?",
+      answer: "Yes, regular clinic consulting hours are Monday through Saturday from 5:00 PM to 8:00 PM."
     }
   ];
 
@@ -48,8 +64,9 @@ export default function FAQPage({ setPage }) {
   return (
     <section className="faq-page-section">
       <SEO 
-        title="Frequently Asked Questions | Dr. Aditi Jain Gynaecologist"
-        description="Find answers to common questions about gynaecology, pregnancy care, PCOS, and booking appointments with Dr. Aditi Jain in Jaipur."
+        title="Women's Health & Appointment FAQs | Dr. Aditi Jain"
+        description="Frequently asked questions about booking consultations, online video calls, clinic location, and services with Dr. Aditi Jain in Jaipur."
+        path="/faq"
         schema={schema}
       />
       <div className="container fade-in-down">

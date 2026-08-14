@@ -28,40 +28,30 @@ export default function Hero({ setPage }) {
             <span className="badge-text">1M+ Views: Watch Dr. Aditi's Viral Video ↗</span>
           </a>
           
-          <span className="hero-eyebrow">Women's Healthcare</span>
+          <span className="hero-eyebrow">DR. ADITI JAIN · WOMEN'S HEALTHCARE · JAIPUR</span>
           
-          <h1 style={{ minHeight: '140px' }}>
-            Personalised care for{' '}
-            <TypeAnimation
-              sequence={[
-                "every stage of a woman's life.", 1500,
-                "your maternity journey.", 1500,
-                "managing PCOS.", 1500,
-                "gynaecological health.", 1500,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-              style={{ color: 'var(--accent-color)', display: 'inline-block' }}
-            />
+          <h1 style={{ minHeight: '120px' }}>
+            Women's Health, Without the Awkwardness.
           </h1>
 
           <p className="hero-subtext">
-            Dr. Aditi Jain provides specialized, evidence-based obstetric and gynaecological care. From routine check-ups to advanced maternity consultations, we focus on clinical excellence and patient confidentiality.
+            Dr. Aditi Jain is a gynaecologist in Jaipur providing personalised consultations for women's health, pregnancy and common gynaecological concerns, with online and in-clinic appointments available.
           </p>
           <div className="hero-actions">
             <button 
               className="btn btn-primary" 
               onClick={() => setPage('appointment')}
             >
-              <Calendar size={16} /> Book Appointment
+              <Calendar size={16} /> BOOK A CONSULTATION
             </button>
-            <button 
+            <a 
+              href={`https://wa.me/${API_CONFIG.WHATSAPP}?text=Hello%20Dr.%20Aditi%20Jain,%20I%20would%20like%20to%20inquire%20about%20a%20consultation.`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-outline" 
-              onClick={() => setPage('consultation')}
             >
-              <Video size={16} /> Online Consultation
-            </button>
+              <Video size={16} /> WHATSAPP THE CLINIC
+            </a>
           </div>
         </motion.div>
 
@@ -74,30 +64,37 @@ export default function Hero({ setPage }) {
           <div className="visual-frame">
             <div className="frame-border"></div>
             <div className="image-wrapper">
-              <img src="/images/p1.png" alt="Dr. Aditi Jain portrait" />
+              <img src="/images/p1.png" alt="Dr. Aditi Jain portrait - Gynaecologist in Jaipur" />
             </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Trust & Location Banner */}
+      <div className="location-trust-banner" style={{ background: '#f5eef0', borderTop: '1px solid #e9dede', borderBottom: '1px solid #e9dede', padding: '12px 0', textAlign: 'center', fontSize: '0.9rem', color: 'var(--primary-dark)' }}>
+        <div className="container">
+          📍 <strong>Consult Dr. Aditi Jain at Agarwal Clinic, Tilak Nagar, Jaipur.</strong>
+        </div>
       </div>
 
       {/* Trust Strip Container */}
       <div className="trust-strip">
         <div className="container trust-grid">
           <div className="trust-item">
-            <span className="trust-label">SPECIALIST</span>
-            <span className="trust-value">{API_CONFIG.SPECIALTY}</span>
+            <span className="trust-label">QUALIFICATIONS</span>
+            <span className="trust-value">MBBS · MS OBGY</span>
           </div>
           <div className="trust-item">
-            <span className="trust-label">ACADEMICS</span>
-            <span className="trust-value">{API_CONFIG.QUALIFICATIONS}</span>
+            <span className="trust-label">ALUMNA</span>
+            <span className="trust-value">SMS Medical College, Jaipur</span>
           </div>
           <div className="trust-item">
-            <span className="trust-label">FACILITY</span>
-            <span className="trust-value">{API_CONFIG.CLINIC_FACILITY}</span>
+            <span className="trust-label">SPECIALITY</span>
+            <span className="trust-value">Gynaecologist & Laparoscopic Surgeon</span>
           </div>
           <div className="trust-item">
-            <span className="trust-label">AVAILABILITY</span>
-            <span className="trust-value">{API_CONFIG.TIMINGS.split(' (')[0]}</span>
+            <span className="trust-label">EXPERIENCE</span>
+            <span className="trust-value">5–6 Years Experience</span>
           </div>
         </div>
       </div>

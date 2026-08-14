@@ -164,20 +164,21 @@ export default function Services({ setPage }) {
   return (
     <section className="services-section">
       <SEO 
-        title="Gynaecology, Maternity & Fertility Services | Dr. Aditi Jain"
-        description="Comprehensive, evidence-based diagnostic and treatment services suited for every stage of a woman's life in Jaipur."
+        title="Gynaecology & Women's Health Services in Jaipur | Dr. Aditi Jain"
+        description="Explore women's health and gynaecological consultation areas offered by Dr. Aditi Jain in Jaipur, including pregnancy, PCOS, menstrual and hormonal concerns."
+        path="/services"
         schema={{
           "@context": "https://schema.org",
           "@type": "MedicalSpecialty",
-          "name": "Obstetrics and Gynaecology",
-          "url": "https://bookmyslotclinic.com/services"
+          "name": "Obstetrics and Gynaecology Services in Jaipur",
+          "url": "https://yourgynac.vercel.app/services"
         }}
       />
       <div className="container">
         
         <div className="section-header fade-in-down">
-          <span className="tagline">Gynaecology Directory</span>
-          <h2>Comprehensive Medical Care</h2>
+          <span className="tagline">JAIPUR CLINIC CONSULTATIONS</span>
+          <h2>Gynaecology & Women's Health Services in Jaipur</h2>
           <p>Evidence-based diagnostic and treatment services suited for every stage of a woman's life.</p>
         </div>
 

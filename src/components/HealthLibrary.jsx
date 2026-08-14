@@ -289,14 +289,20 @@ function VideoDetailView({ video, onBack, allVideos, onVideoClick, setPage }) {
     <div className="hl-detail-wrapper">
       <SEO 
         title={`${video.title} | Dr. Aditi Jain Health Library`}
-        description={video.description}
+        description={video.quickAnswer || video.shortDescription}
+        path={`/library#${video.slug || video.id}`}
         schema={{
           "@context": "https://schema.org",
           "@type": "VideoObject",
           "name": video.title,
-          "description": video.description,
-          "thumbnailUrl": "https://bookmyslotclinic.com/images/p1.png",
-          "uploadDate": new Date().toISOString()
+          "description": video.quickAnswer || video.shortDescription,
+          "thumbnailUrl": `https://yourgynac.vercel.app${video.thumbnailUrl}`,
+          "uploadDate": video.publishedDate || "2026-08-10",
+          "author": {
+            "@type": "Person",
+            "name": "Dr. Aditi Jain",
+            "jobTitle": "Gynaecologist in Jaipur"
+          }
         }}
       />
       <div className="container hl-detail-container">
@@ -311,7 +317,7 @@ function VideoDetailView({ video, onBack, allVideos, onVideoClick, setPage }) {
           <h1>{video.title}</h1>
           <div className="hl-detail-meta">
             <span>{video.topic}</span>
-            {video.doctorReviewed && <span className="reviewed-badge">✓ Physician Reviewed</span>}
+            {video.doctorReviewed && <span className="reviewed-badge">✓ Physician Reviewed by Dr. Aditi Jain</span>}
             {video.views && <span>• {formatStat(video.views)} views</span>}
             {video.publishedDate && <span>• {new Date(video.publishedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>}
           </div>
@@ -339,6 +345,24 @@ function VideoDetailView({ video, onBack, allVideos, onVideoClick, setPage }) {
         </div>
 
         <div className="hl-detail-content">
+          {video.quickAnswer && (
+            <div className="quick-answer-box" style={{
+              background: '#fcfaf6',
+              border: '1px solid #e9dede',
+              borderLeft: '4px solid var(--primary-color)',
+              padding: '20px 24px',
+              borderRadius: '8px',
+              marginBottom: '30px'
+            }}>
+              <h4 style={{ color: 'var(--primary-color)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+                ⚡ QUICK ANSWER
+              </h4>
+              <p style={{ fontSize: '1rem', color: 'var(--primary-dark)', margin: 0, lineHeight: '1.6', fontWeight: 500 }}>
+                {video.quickAnswer}
+              </p>
+            </div>
+          )}
+
           <h3>About this video</h3>
           <p>{video.shortDescription}</p>
           

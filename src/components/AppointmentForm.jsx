@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar as CalendarIcon, ChevronRight, ChevronLeft, Check, Sparkles, Video, Mail } from 'lucide-react';
 import { API_CONFIG } from '../config';
+import SEO from './SEO';
 
 export default function AppointmentForm({ setPage, setReservationData }) {
   const [step, setStep] = useState(1); // Steps: 1 (Date), 2 (Details), 3 (Confirm), 4 (Success)
@@ -48,108 +49,96 @@ export default function AppointmentForm({ setPage, setReservationData }) {
 
       if (result.success && Array.isArray(result.data)) {
         const match = result.data.find(holiday => {
-          const from = holiday.dateFrom || holiday.date || holiday.from;
-          const to = holiday.dateTo || from;
-          return dateVal >= from && dateVal <= to;
+          return holiday.date === dateVal;
         });
         if (match) {
           isHoliday = true;
-          holidayReason = match.reason || "Clinic Closed";
+          holidayReason = match.reason || "Doctor unavailable on this date.";
         }
       }
 
       if (isHoliday) {
-        setHolidayMessage(`⚠️ The clinic is closed on ${dateVal} (${holidayReason}). Booking is not possible on this date. Please select another date.`);
+        setHolidayMessage(`Notice: ${holidayReason}`);
       }
     } catch (err) {
-      console.error(err);
+      console.warn("Holiday check error:", err);
     } finally {
       setCheckingSlots(false);
     }
   };
 
-  const handleNextStep = () => {
-    if (step === 1) {
-      if (!selectedDate) {
-        setError('Please select an appointment date.');
-        return;
-      }
-      if (holidayMessage) {
-        setError(holidayMessage);
-        return;
-      }
-      setError('');
-      setStep(2);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (step === 2) {
-      if (!fullName.trim() || !age || !phone.trim() || !email.trim()) {
-        setError('Please fill in all required patient fields.');
-        return;
-      }
-      if (!consentDisclaimer || !consentPrivacy) {
-        setError('You must agree to the medical disclaimer and privacy policy.');
-        return;
-      }
-      setError('');
-      setStep(3);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handlePrevStep = () => {
-    if (step > 1) {
-      setStep(step - 1);
-      setError('');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handleBookingConfirm = async () => {
-    if (submitting) return;
-    
-    // Check if this specific booking was already submitted recently
-    const idempotencyKey = `booking_${phone.trim()}_${selectedDate}`;
-    if (sessionStorage.getItem(idempotencyKey) === 'submitted') {
-      setError('You have already submitted a request for this date. Please wait for confirmation.');
+  const handleNextStep1 = (e) => {
+    e.preventDefault();
+    if (!selectedDate) {
+      setError('Please select a preferred consultation date.');
       return;
     }
+    setError('');
+    setStep(2);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
+  const handleNextStep2 = (e) => {
+    e.preventDefault();
+    if (!fullName || !phone || !email) {
+      setError('Please fill in all required fields (Name, Phone, Email).');
+      return;
+    }
+    if (!consentDisclaimer || !consentPrivacy) {
+      setError('Please accept both terms to proceed with your booking request.');
+      return;
+    }
+    setError('');
+    setStep(3);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSubmitBooking = async () => {
     setSubmitting(true);
     setError('');
+
+    const payload = {
+      action: 'createBooking',
+      patientName: fullName,
+      age,
+      phone,
+      email,
+      city,
+      consultationType: 'Online Consultation',
+      service: reason || 'General Consultation',
+      requestedDate: selectedDate,
+      requestedTime: '18:00', // Default slot request
+      isPreviousPatient: prevPatient,
+      clinicalReason: reason
+    };
 
     try {
       const response = await fetch(API_CONFIG.SCRIPT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({
-          action: 'createBooking',
-          intentId: idempotencyKey, // Used by server for deduplication
-          patientName: fullName.trim(),
-          age: parseInt(age),
-          phone: phone.trim(),
-          email: email.trim(),
-          service: prevPatient === 'Yes' ? 'Follow-up Consultation' : 'New Patient Consultation',
-          requestedDate: selectedDate,
-          requestedTime: "Flexible/TBD", 
-          consultationType: "Online Consultation", 
-          message: reason.trim(),
-          city: city.trim()
-        })
+        body: JSON.stringify(payload)
       });
-
-      const result = await response.json();
-
-      if (result.success) {
-        sessionStorage.setItem(idempotencyKey, 'submitted');
-        setBookingResult(result);
-        setReservationData(result);
+      
+      const resData = await response.json();
+      if (resData.success) {
+        const resultObj = {
+          bookingId: resData.data.bookingId,
+          patientName: fullName,
+          date: selectedDate,
+          time: '18:00',
+          service: reason || 'General Consultation',
+          consultationType: 'Online Consultation'
+        };
+        setBookingResult(resultObj);
+        setReservationData(resultObj);
         setStep(4);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        setError(result.message || 'We could not complete your booking. Please try again.');
+        setError(resData.error || 'Failed to submit appointment request. Please try again.');
       }
     } catch (err) {
       console.error(err);
-      setError('Something went wrong. Your online consultation has not been confirmed. Please try again.');
+      setError('Network connection error. Please try again or contact the clinic via WhatsApp.');
     } finally {
       setSubmitting(false);
     }
@@ -163,6 +152,11 @@ export default function AppointmentForm({ setPage, setReservationData }) {
 
   return (
     <section className="booking-page-section">
+      <SEO 
+        title="Book a Gynaecology Consultation | Dr. Aditi Jain"
+        description="Request an in-clinic or online gynaecology consultation with Dr. Aditi Jain in Jaipur."
+        path="/appointment"
+      />
       <div className="container">
         
         {/* Step Stepper Indicator */}
@@ -194,8 +188,8 @@ export default function AppointmentForm({ setPage, setReservationData }) {
         {step === 1 && (
           <div className="form-container fade-in-down">
             <div className="form-header">
-              <h1>Select Consultation Date</h1>
-              <p>Consultations are conducted exclusively via secure Google Meet video calls.</p>
+              <h1>Request an appointment</h1>
+              <p>Choose your preferred consultation type, date and time. Your request will be reviewed by the clinic and confirmed shortly.</p>
             </div>
 
             <div className="form-group">

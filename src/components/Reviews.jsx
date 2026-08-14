@@ -34,9 +34,9 @@ export default function Reviews({ setPage }) {
     <section className="reviews-section">
       <div className="container reviews-header">
         <span className="eyebrow">PATIENT EXPERIENCES</span>
-        <h2>Kind words from our patients.</h2>
+        <h2>Real experiences from our patients.</h2>
         <p className="reviews-subtext">
-          Real experiences shared by patients on Google.
+          Read genuine reviews shared on Google.
         </p>
 
         <div className="google-stats">

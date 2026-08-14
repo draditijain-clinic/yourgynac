@@ -1,5 +1,6 @@
 import React from 'react';
 import { Video, ShieldCheck, Laptop, Calendar } from 'lucide-react';
+import SEO from './SEO';
 
 export default function OnlineConsultation({ setPage }) {
   const steps = [
@@ -16,7 +17,7 @@ export default function OnlineConsultation({ setPage }) {
     {
       num: "03",
       title: "Receive Confirmation",
-      desc: "An automated confirmation mail containing the Google Calendar event details is sent to you instantly."
+      desc: "An automated confirmation mail containing the appointment details is sent to you."
     },
     {
       num: "04",
@@ -27,16 +28,21 @@ export default function OnlineConsultation({ setPage }) {
 
   return (
     <section className="consult-page-section">
+      <SEO 
+        title="Online Gynaecologist Consultation | Dr. Aditi Jain Jaipur"
+        description="Consult Dr. Aditi Jain online from home for women's health questions, follow-ups, and report reviews."
+        path="/consultation"
+      />
       <div className="container">
         
         {/* Editorial Hero */}
         <div className="consult-hero fade-in-down">
           <div className="consult-hero-content">
-            <span className="eyebrow">VIDEO CONSULTATIONS</span>
-            <h2>Speak with your doctor from wherever you are</h2>
-            <p>We provide secure, private, and convenient telemedicine consultations for follow-ups, initial counseling, and health discussions.</p>
+            <span className="eyebrow">TELEMEDICINE CARE</span>
+            <h2>Consult Dr. Aditi Jain from wherever you are.</h2>
+            <p>Online consultations make it easier to discuss appropriate women's health concerns without travelling to the clinic. The doctor may recommend an in-person visit when physical examination or further evaluation is necessary.</p>
             <button className="btn btn-primary" onClick={() => setPage('appointment')} style={{ marginTop: '20px' }}>
-              <Video size={16} /> Book Online Consultation
+              <Video size={16} /> BOOK ONLINE CONSULTATION
             </button>
           </div>
           <div className="consult-hero-icon-block">
