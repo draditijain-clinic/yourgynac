@@ -182,7 +182,7 @@ export default function Header({ currentPage, setPage }) {
           .nav-menu {
             position: fixed;
             top: 0;
-            right: -100%;
+            right: 0;
             width: 280px;
             height: 100vh;
             background-color: var(--white);
@@ -190,10 +190,13 @@ export default function Header({ currentPage, setPage }) {
             z-index: 1050;
             transition: var(--transition-smooth);
             padding: 90px 24px 40px;
+            transform: translateX(100%);
+            visibility: hidden;
           }
 
           .nav-menu.open {
-            right: 0;
+            transform: translateX(0);
+            visibility: visible;
           }
 
           .nav-menu ul {
