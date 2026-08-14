@@ -39,7 +39,13 @@ export default function AppointmentsPage() {
     setLoading(true);
     try {
       const data = await adminApi.getBookings();
-      setAppointments(data || []);
+      if (Array.isArray(data)) {
+        setAppointments(data);
+      } else if (data && Array.isArray(data.data)) {
+        setAppointments(data.data);
+      } else {
+        setAppointments([]);
+      }
     } catch (err) {
       console.error(err);
     } finally {
@@ -49,9 +55,9 @@ export default function AppointmentsPage() {
 
   const handleAcceptClick = (apt) => {
     setSelectedApt(apt);
-    setAcceptDate(apt['Requested Date'] || '');
-    setAcceptTime(apt['Requested Time'] || '');
-    if (String(apt['Consultation Type'] || '').toLowerCase().includes('online')) {
+    setAcceptDate(apt['Requested Date'] || apt.requestedDate || '');
+    setAcceptTime(apt['Requested Time'] || apt.requestedTime || '');
+    if (String(apt['Consultation Type'] || apt.consultationType || '').toLowerCase().includes('online')) {
       setProposedMeetUrl(generateRandomMeetUrl());
     } else {
       setProposedMeetUrl('');
@@ -83,11 +89,11 @@ export default function AppointmentsPage() {
     const duration = formData.get('duration');
     const meetUrl = (formData.get('meetUrl') || '').trim();
     
-    const pName = selectedApt['Patient Name'] || 'Patient';
-    let phone = selectedApt['Phone'] || '';
-    const bId = selectedApt['Booking ID'];
-    const service = selectedApt['Service'] || 'Consultation';
-    const cType = selectedApt['Consultation Type'] || 'General';
+    const pName = selectedApt['Patient Name'] || selectedApt.patientName || 'Patient';
+    let phone = selectedApt['Phone'] || selectedApt.phone || '';
+    const bId = selectedApt['Booking ID'] || selectedApt.bookingId;
+    const service = selectedApt['Service'] || selectedApt.service || 'Consultation';
+    const cType = selectedApt['Consultation Type'] || selectedApt.consultationType || 'General';
     const isOnline = cType.toLowerCase().includes('online');
 
     // Helper to format date nicely
@@ -98,25 +104,13 @@ export default function AppointmentsPage() {
       return d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
     };
 
-    // Helper to format time nicely
-    const formatTimeStr = (str) => {
-      if (!str) return '';
-      const parts = str.split(':');
-      if (parts.length < 2) return str;
-      const hh = parseInt(parts[0], 10);
-      const mm = parts[1];
-      const ampm = hh >= 12 ? 'PM' : 'AM';
-      const displayHour = hh % 12 || 12;
-      return `${displayHour}:${mm} ${ampm}`;
-    };
-
-    const formattedDate = formatDateStr(date);
-    const formattedTime = formatTimeStr(time);
-
-    let whatsappMsg = `Hello ${pName}, this is Dr. Aditi Jain's clinic.\n\nYour consultation has been accepted.\n\nDate: ${formattedDate}\nTime: ${formattedTime} IST\nConsultation: ${cType}\nService: ${service}\n\n`;
-    if (isOnline && meetUrl) {
-      whatsappMsg += `Google Meet Link:\n${meetUrl}\n\nPlease join 5 minutes before your appointment.\n\n`;
-    } else if (isOnline) {
+    let whatsappMsg = `Hello ${pName}, this is Dr. Aditi Jain's clinic.\n\n`;
+    whatsappMsg += `Your consultation has been confirmed.\n\n`;
+    whatsappMsg += `Date: ${formatDateStr(date)}\nTime: ${time} IST\nConsultation: ${isOnline ? 'Online Video' : 'In-Clinic'}\nService: ${service}\n\n`;
+    if (isOnline) {
+      if (meetUrl) {
+        whatsappMsg += `Google Meet Link:\n${meetUrl}\n\n`;
+      }
       whatsappMsg += `Note: The Google Meet link and other details will be shared before the meeting and have also been auto-mailed to you.\n\n`;
     } else {
       whatsappMsg += `Note: The consultation details have been auto-mailed to you.\n\n`;
@@ -138,7 +132,7 @@ export default function AppointmentsPage() {
     setAcceptModalOpen(false);
 
     try {
-      await adminApi.acceptBooking(selectedApt['Booking ID'], date, time, duration, 'Admin', meetUrl);
+      await adminApi.acceptBooking(bId, date, time, duration, 'Admin', meetUrl);
       if (showToast) showToast("✓ Appointment confirmed successfully & WhatsApp opened!", "success");
       loadAppointments(); // refresh
     } catch (err) {
@@ -153,7 +147,7 @@ export default function AppointmentsPage() {
     if (window.confirm("Are you sure you want to reject this request?")) {
       setProcessing(true);
       try {
-        await adminApi.rejectBooking(apt['Booking ID'], 'Admin');
+        await adminApi.rejectBooking(apt['Booking ID'] || apt.bookingId, 'Admin');
         if (showToast) showToast("✓ Appointment request rejected.", "info");
         loadAppointments();
       } catch (err) {
@@ -165,20 +159,24 @@ export default function AppointmentsPage() {
   };
 
   const filteredAppointments = appointments.filter(apt => {
-    if (filter !== 'ALL') {
-      if (filter === 'CONFIRMED') {
-        if (apt.Status !== 'CONFIRMED' && apt.Status !== 'ACCEPTED') return false;
+    if (filter && filter !== 'ALL') {
+      const aStatus = String(apt['Status'] || apt.status || '').toUpperCase();
+      const targetFilter = filter.toUpperCase();
+      if (targetFilter === 'CONFIRMED' || targetFilter === 'ACCEPTED') {
+        if (aStatus !== 'CONFIRMED' && aStatus !== 'ACCEPTED') return false;
+      } else if (targetFilter === 'CANCELLED' || targetFilter === 'REJECTED') {
+        if (aStatus !== 'CANCELLED' && aStatus !== 'REJECTED') return false;
       } else {
-        if (apt.Status !== filter) return false;
+        if (aStatus !== targetFilter) return false;
       }
     }
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase();
-      return (
-        apt['Patient Name']?.toLowerCase().includes(term) ||
-        apt['Booking ID']?.toLowerCase().includes(term) ||
-        apt['Phone']?.includes(term)
-      );
+    if (searchTerm && searchTerm.trim()) {
+      const term = searchTerm.toLowerCase().trim();
+      const name = String(apt['Patient Name'] || apt.patientName || '').toLowerCase();
+      const id = String(apt['Booking ID'] || apt.bookingId || '').toLowerCase();
+      const phone = String(apt['Phone'] || apt.phone || '').toLowerCase();
+      const email = String(apt['Email'] || apt.email || '').toLowerCase();
+      return name.includes(term) || id.includes(term) || phone.includes(term) || email.includes(term);
     }
     return true;
   });

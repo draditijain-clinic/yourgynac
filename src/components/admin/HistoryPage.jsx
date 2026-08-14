@@ -26,8 +26,12 @@ export default function HistoryPage() {
     try {
       // getBookings returns all records from BOOKINGS sheet
       const res = await adminApi.getBookings();
-      if (res && res.data) {
+      if (Array.isArray(res)) {
+        setBookings(res);
+      } else if (res && Array.isArray(res.data)) {
         setBookings(res.data);
+      } else {
+        setBookings([]);
       }
     } catch (err) {
       if (showToast) showToast("Failed to load history: " + err.message, "error");
@@ -66,28 +70,48 @@ export default function HistoryPage() {
 
   const filteredBookings = bookings.filter(b => {
     // Status Filter
-    if (statusFilter !== 'ALL') {
-      if (statusFilter === 'CONFIRMED') {
-        if (b.Status !== 'CONFIRMED' && b.Status !== 'ACCEPTED') return false;
+    if (statusFilter && statusFilter !== 'ALL') {
+      const bStatus = String(b['Status'] || b.status || '').toUpperCase();
+      const target = statusFilter.toUpperCase();
+      
+      if (target === 'CONFIRMED' || target === 'ACCEPTED') {
+        if (bStatus !== 'CONFIRMED' && bStatus !== 'ACCEPTED') return false;
+      } else if (target === 'CANCELLED' || target === 'REJECTED') {
+        if (bStatus !== 'CANCELLED' && bStatus !== 'REJECTED') return false;
       } else {
-        if (b.Status !== statusFilter) return false;
+        if (bStatus !== target) return false;
       }
     }
     
     // Date Filter
     if (dateFilter) {
-      const bDate = b['Confirmed Date'] || b['Requested Date'];
+      const rawDate = b['Confirmed Date'] || b['Requested Date'] || b.confirmedDate || b.requestedDate || b.date || '';
+      let bDate = '';
+      if (rawDate) {
+        const str = String(rawDate).trim();
+        if (/^\d{4}-\d{2}-\d{2}/.test(str)) {
+          bDate = str.substring(0, 10);
+        } else {
+          const d = new Date(str);
+          if (!isNaN(d.getTime())) {
+            bDate = d.toISOString().substring(0, 10);
+          }
+        }
+      }
       if (bDate !== dateFilter) return false;
     }
 
-    // Text Search (Name, Phone, Email, ID)
-    if (searchTerm.trim()) {
+    // Text Search (Name, Phone, Email, ID, Service, Consultation Type)
+    if (searchTerm && searchTerm.trim()) {
       const term = searchTerm.toLowerCase().trim();
-      const name = String(b['Patient Name'] || '').toLowerCase();
-      const phone = String(b['Phone'] || '').toLowerCase();
-      const email = String(b['Email'] || '').toLowerCase();
-      const id = String(b['Booking ID'] || '').toLowerCase();
-      if (!name.includes(term) && !phone.includes(term) && !email.includes(term) && !id.includes(term)) {
+      const name = String(b['Patient Name'] || b.patientName || '').toLowerCase();
+      const phone = String(b['Phone'] || b.phone || '').toLowerCase();
+      const email = String(b['Email'] || b.email || '').toLowerCase();
+      const id = String(b['Booking ID'] || b.bookingId || '').toLowerCase();
+      const service = String(b['Service'] || b.service || '').toLowerCase();
+      const type = String(b['Consultation Type'] || b.consultationType || '').toLowerCase();
+      
+      if (!name.includes(term) && !phone.includes(term) && !email.includes(term) && !id.includes(term) && !service.includes(term) && !type.includes(term)) {
         return false;
       }
     }
