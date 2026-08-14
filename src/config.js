@@ -19,7 +19,7 @@ export const API_CONFIG = {
   // Contacts
   PHONE: "+91 72968 97975",
   WHATSAPP: "917296897975",
-  EMAIL: "draditijain@gmail.com",
+  EMAIL: "draditijainclinic96@gmail.com",
   
   // Instagram Social Profile
   INSTAGRAM_HANDLE: "@draditi_explains_women",
