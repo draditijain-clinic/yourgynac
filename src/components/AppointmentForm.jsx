@@ -70,7 +70,11 @@ export default function AppointmentForm({ setPage, setReservationData }) {
   const handleNextStep1 = (e) => {
     if (e && e.preventDefault) e.preventDefault();
     if (!selectedDate) {
-      setError('Please select a preferred consultation date.');
+      setError('Please select a preferred consultation date to proceed.');
+      return;
+    }
+    if (holidayMessage) {
+      setError(holidayMessage);
       return;
     }
     setError('');
@@ -80,14 +84,28 @@ export default function AppointmentForm({ setPage, setReservationData }) {
 
   const handleNextStep2 = (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    if (!fullName || !phone || !email) {
-      setError('Please fill in all required fields (Name, Phone, Email).');
+    
+    if (!fullName || !fullName.trim()) {
+      setError('Please enter the patient\'s full name.');
+      return;
+    }
+    if (!age) {
+      setError('Please enter the patient\'s age.');
+      return;
+    }
+    if (!phone || !phone.trim()) {
+      setError('Please enter a valid mobile phone number.');
+      return;
+    }
+    if (!email || !email.trim()) {
+      setError('Please enter a valid email address.');
       return;
     }
     if (!consentDisclaimer || !consentPrivacy) {
-      setError('Please accept both terms to proceed with your booking request.');
+      setError('Please accept both consent terms to proceed with your booking request.');
       return;
     }
+
     setError('');
     setStep(3);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -214,8 +232,8 @@ export default function AppointmentForm({ setPage, setReservationData }) {
             {checkingSlots && <p className="status-txt">Checking calendar availability...</p>}
             {holidayMessage && <p className="holiday-alert-txt">{holidayMessage}</p>}
 
-            <div className="step-navigation-actions" style={{ justifyContent: 'flex-end' }}>
-              <button className="btn btn-primary" onClick={handleNextStep1} disabled={checkingSlots || !!holidayMessage}>
+            <div className="step-navigation-actions" style={{ justifyContent: 'flex-end', marginTop: '20px' }}>
+              <button type="button" className="btn btn-primary" onClick={handleNextStep1} disabled={checkingSlots}>
                 Next <ChevronRight size={16} />
               </button>
             </div>
@@ -347,14 +365,16 @@ export default function AppointmentForm({ setPage, setReservationData }) {
               </label>
             </div>
 
-            <div className="step-navigation-actions">
-              <button className="btn btn-outline" onClick={handlePrevStep}>
+            {error && <div className="error-alert fade-in-down" style={{ marginTop: '20px' }}>{error}</div>}
+
+            <div className="step-navigation-actions" style={{ marginTop: '20px' }}>
+              <button type="button" className="btn btn-outline" onClick={handlePrevStep}>
                 <ChevronLeft size={16} /> Back
               </button>
               <button 
+                type="button"
                 className="btn btn-primary" 
                 onClick={handleNextStep2}
-                disabled={!consentDisclaimer || !consentPrivacy}
               >
                 Next <ChevronRight size={16} />
               </button>
@@ -397,11 +417,13 @@ export default function AppointmentForm({ setPage, setReservationData }) {
               </div>
             </div>
 
+            {error && <div className="error-alert fade-in-down" style={{ marginTop: '20px' }}>{error}</div>}
+
             <div className="step-navigation-actions" style={{ marginTop: '40px', display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
-              <button className="btn btn-outline" onClick={handlePrevStep} disabled={submitting}>
+              <button type="button" className="btn btn-outline" onClick={handlePrevStep} disabled={submitting}>
                 <ChevronLeft size={16} /> Back
               </button>
-              <button className="btn btn-primary" onClick={handleSubmitBooking} disabled={submitting}>
+              <button type="button" className="btn btn-primary" onClick={handleSubmitBooking} disabled={submitting}>
                 {submitting ? 'Submitting...' : 'Confirm Video Appointment'}
               </button>
             </div>
