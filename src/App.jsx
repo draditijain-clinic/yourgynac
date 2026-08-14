@@ -22,6 +22,7 @@ import ClinicIntro from './components/ClinicIntro';
 import SEO from './components/SEO';
 
 import { ToastProvider } from './components/ToastNotification';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [page, setPage] = useState(() => {
@@ -961,6 +962,7 @@ export default function App() {
             </div>
           </div>
         )}
+        <Analytics />
       </div>
     </ToastProvider>
   );
