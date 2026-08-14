@@ -201,19 +201,20 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
         }
 
         .sidebar-header {
-          padding: 24px 20px;
+          padding: 20px 14px;
           border-bottom: 1px solid rgba(241, 236, 225, 0.6);
           display: flex;
           justify-content: space-between;
           align-items: center;
-          gap: 12px;
+          gap: 8px;
         }
 
         .logo-brand-box {
           display: flex;
           align-items: center;
-          gap: 14px;
-          overflow: hidden;
+          gap: 10px;
+          min-width: 0;
+          flex: 1;
         }
 
         .admin-logo-img {
@@ -230,7 +231,7 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
         .brand-text-box h3 {
           font-family: var(--font-serif);
           color: var(--primary-color);
-          font-size: 1.15rem;
+          font-size: 1.05rem;
           margin: 0 0 2px 0;
           white-space: nowrap;
           font-weight: 700;
@@ -238,9 +239,9 @@ export default function AdminLayout({ children, activeTab, setActiveTab, setPage
 
         .brand-text-box p {
           color: var(--text-light);
-          font-size: 0.72rem;
+          font-size: 0.68rem;
           text-transform: uppercase;
-          letter-spacing: 1px;
+          letter-spacing: 0.4px;
           margin: 0;
           white-space: nowrap;
           font-weight: 600;
