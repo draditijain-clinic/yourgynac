@@ -450,7 +450,7 @@ export default function Services({ setPage }) {
         }
 
         .modal-section li::before {
-          content: "✓";
+          content: "\\2713";
           color: var(--accent-color);
           position: absolute;
           left: 0;

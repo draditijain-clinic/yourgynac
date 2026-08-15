@@ -148,7 +148,7 @@ export default function Dashboard({ setActiveTab }) {
     
     try {
       await adminApi.rescheduleBooking(bId, date, newTime, meetUrl);
-      if (showToast) showToast(`✓ Delayed appointment by ${mins} mins!`, "success");
+      if (showToast) showToast(`Delayed appointment by ${mins} mins!`, "success");
       await loadDashboardData();
       
       // Auto-open WhatsApp Composer prefilled with delay message
@@ -183,7 +183,7 @@ export default function Dashboard({ setActiveTab }) {
 
     try {
       await adminApi.rescheduleBooking(selectedApt['Booking ID'], reschedDate, reschedTime, reschedMeetUrl);
-      if (showToast) showToast("✓ Appointment rescheduled successfully!", "success");
+      if (showToast) showToast("Appointment rescheduled successfully!", "success");
       setRescheduleModalOpen(false);
       await loadDashboardData();
 

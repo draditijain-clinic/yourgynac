@@ -8,11 +8,16 @@ export const API_CONFIG = {
   // Doctor & Clinic Branding Info
   DOCTOR_NAME: "Dr. Aditi Jain",
   CLINIC_NAME: "Dr. Aditi Jain – Women’s Clinic",
+  DESIGNATION: "Assistant Professor, Obstetrician & Gynaecologist",
   QUALIFICATIONS: "MBBS, MS OBGY",
-  ALUMNA: "SMS Medical College, Jaipur",
-  SPECIALTY: "Consultant Obstetrician & Gynaecologist",
-  SURGEON_TITLE: "Laparoscopic Gynaecological Surgeon",
-  EXPERIENCE: "5–6 Years Experience",
+  MBBS_DETAILS: "Jhalawar Medical College, Rajasthan (2013 Batch)",
+  MS_DETAILS: "SMS Medical College, Jaipur (2020 Batch)",
+  FELLOWSHIPS: "Fellowship in Laparoscopic Surgery & Ultrasonography",
+  ALUMNA: "SMS Medical College Jaipur & Jhalawar Medical College",
+  SPECIALTY: "Infertility Specialist & Gynae Laparoscopic Surgeon",
+  SURGEON_TITLE: "Gynae Laparoscopic Surgeon & Infertility Specialist",
+  EXPERIENCE: "6+ Years Post-MBBS Experience",
+  HOSPITAL_ATTACHMENT: "Balveer Singh Tomar (BST) Medical College, Achrol, Jaipur",
   
   // Location Details
   CLINIC_FACILITY: "Agarwal Clinic",

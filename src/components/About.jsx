@@ -1,23 +1,37 @@
 import React from 'react';
 import { API_CONFIG } from '../config';
 import SEO from './SEO';
+import { GraduationCap, Stethoscope, Award, Building2, MapPin } from 'lucide-react';
 
 export default function About({ setPage }) {
   return (
     <section className="about-section">
       <SEO 
-        title="About Dr. Aditi Jain | MBBS, MS OBGY | Jaipur"
-        description="Dr. Aditi Jain is a gynaecologist in Jaipur with an MBBS and MS OBGY qualification from SMS Medical College, Jaipur. Her practice focuses on personalised women's healthcare."
+        title="About Dr. Aditi Jain | Assistant Professor, Obstetrician & Gynaecologist | Jaipur"
+        description="Dr. Aditi Jain is an Assistant Professor, Obstetrician & Gynaecologist in Jaipur with 6+ years experience, MBBS from Jhalawar Medical College and MS OBGY from SMS Medical College, Jaipur. Specializing in Infertility and Gynae Laparoscopic Surgery."
         path="/about"
         schema={{
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Dr. Aditi Jain",
-          "jobTitle": "Consultant Obstetrician & Gynaecologist",
-          "alumniOf": "SMS Medical College, Jaipur",
+          "jobTitle": "Assistant Professor, Obstetrician & Gynaecologist",
+          "worksFor": [
+            {
+              "@type": "MedicalOrganization",
+              "name": "Balveer Singh Tomar (BST) Medical College, Achrol, Jaipur"
+            },
+            {
+              "@type": "MedicalClinic",
+              "name": "Agarwal Clinic, Raja Park, Jaipur"
+            }
+          ],
+          "alumniOf": [
+            "SMS Medical College, Jaipur",
+            "Jhalawar Medical College, Rajasthan"
+          ],
           "url": "https://yourgynac.vercel.app/about",
           "image": "https://yourgynac.vercel.app/images/p2.png",
-          "knowsAbout": ["Gynaecology", "Obstetrics", "High-Risk Pregnancy", "PCOS/PCOD", "Laparoscopic Surgery"]
+          "knowsAbout": ["Infertility Treatment", "Gynae Laparoscopic Surgery", "Obstetrics & Gynaecology", "Ultrasonography", "High-Risk Pregnancy", "PCOS/PCOD"]
         }}
       />
       <div className="container">
@@ -25,15 +39,28 @@ export default function About({ setPage }) {
         {/* Editorial Profile Header */}
         <div className="profile-header fade-in-down">
           <div className="profile-photo-frame">
-            <img src="/images/p2.png" alt="Dr. Aditi Jain gynaecologist in Jaipur" />
+            <img src="/images/p2.png" alt="Dr. Aditi Jain Assistant Professor Gynaecologist in Jaipur" />
           </div>
           <div className="profile-intro-details">
-            <span className="profile-eyebrow">SMS MEDICAL COLLEGE ALUMNA</span>
+            <span className="profile-eyebrow">ASSISTANT PROFESSOR · SMS MEDICAL COLLEGE ALUMNA</span>
             <h2>Meet Dr. Aditi Jain</h2>
-            <p className="profile-credentials">MBBS · MS OBGY (SMS Medical College, Jaipur)</p>
-            <p className="profile-spec">Gynaecologist & Laparoscopic Gynaecological Surgeon</p>
-            <p className="profile-tagline">Providing private, patient-centred medical consultations built on clear communication and clinical evidence.</p>
-            <button className="btn btn-primary" onClick={() => setPage('appointment')} style={{ marginTop: '20px' }}>
+            <p className="profile-credentials">MBBS (Jhalawar Medical College) · MS OBGY (SMS Medical College, Jaipur)</p>
+            <p className="profile-spec">Assistant Professor (OBGY) | Infertility Specialist & Gynae Laparoscopic Surgeon</p>
+            <p className="profile-tagline">Providing private, evidence-based women's healthcare built on clinical experience (6+ years post-MBBS), patient empathy, and surgical precision.</p>
+            
+            <div className="header-badges-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '14px' }}>
+              <span className="info-badge" style={{ background: '#f5eef0', color: 'var(--primary-color)', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <GraduationCap size={15} /> Assistant Professor @ BST Medical College
+              </span>
+              <span className="info-badge" style={{ background: '#f5eef0', color: 'var(--primary-color)', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <Stethoscope size={15} /> 6+ Years Post-MBBS Clinical Exp.
+              </span>
+              <span className="info-badge" style={{ background: '#f5eef0', color: 'var(--primary-color)', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <Award size={15} /> Laparoscopy & Ultrasound Fellow
+              </span>
+            </div>
+
+            <button className="btn btn-primary" onClick={() => setPage('appointment')} style={{ marginTop: '22px', alignSelf: 'flex-start' }}>
               BOOK A CONSULTATION
             </button>
           </div>
@@ -45,17 +72,55 @@ export default function About({ setPage }) {
           <div className="profile-col-left">
             <div className="profile-block">
               <h3>About Dr. Aditi Jain</h3>
-              <p>Dr. Aditi Jain is a gynaecologist in Jaipur with an MBBS and MS OBGY qualification from SMS Medical College, Jaipur. Her practice focuses on personalised women's healthcare, clear communication and helping patients understand their concerns and treatment options.</p>
+              <p>Dr. Aditi Jain is an Assistant Professor of Obstetrics & Gynaecology, Infertility Specialist, and Gynae Laparoscopic Surgeon based in Jaipur with over 6 years of clinical experience post-MBBS. Educated at premier medical institutes including Jhalawar Medical College and SMS Medical College Jaipur, she combines academic excellence with compassionate, patient-first care.</p>
             </div>
 
             <div className="profile-block">
-              <h3>Qualifications</h3>
+              <h3>Qualifications & Fellowships</h3>
               <ul className="details-bullet-list">
-                <li><strong>Master of Surgery (MS)</strong> in Obstetrics & Gynaecology, SMS Medical College, Jaipur</li>
-                <li><strong>Bachelor of Medicine, Bachelor of Surgery (MBBS)</strong>, SMS Medical College, Jaipur</li>
-                <li>Certified in Advanced Gynaecological Endoscopic Procedures</li>
-                <li>Registered Practitioner with Rajasthan Medical Council</li>
+                <li><strong>Master of Surgery (MS)</strong> in Obstetrics & Gynaecology — SMS Medical College, Jaipur (2020 Batch)</li>
+                <li><strong>Bachelor of Medicine, Bachelor of Surgery (MBBS)</strong> — Jhalawar Medical College, Rajasthan (2013 Batch)</li>
+                <li><strong>Fellowship in Laparoscopic Surgery</strong> — Navyam Hospital</li>
+                <li><strong>Fellowship in Ultrasonography (Ultrasound)</strong> — Specialized Diagnostic Ultrasound Training</li>
+                <li>Registered Medical Practitioner with Rajasthan Medical Council</li>
               </ul>
+            </div>
+
+            <div className="profile-block">
+              <h3>Career & Hospital Experience</h3>
+              <p style={{ marginBottom: '12px' }}>Dr. Aditi has served across top tertiary healthcare centers and hospitals in Jaipur:</p>
+              <div className="experience-timeline">
+                <table className="info-table" style={{ background: '#fff', borderRadius: '12px', overflow: 'hidden', border: '1px solid #f1ece1' }}>
+                  <thead>
+                    <tr style={{ background: 'var(--primary-light)' }}>
+                      <th>Hospital / Institution</th>
+                      <th>Role & Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Balveer Singh Tomar (BST) Medical College, Achrol, Jaipur</strong></td>
+                      <td>Assistant Professor (OBGY)<br /><small style={{ color: 'var(--accent-color)', fontWeight: 600 }}>Jan 2026 – Present</small></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Zenana Hospital, Chandpole, Jaipur</strong></td>
+                      <td>Obstetrics & Gynaecology Practitioner<br /><small style={{ color: '#666' }}>1 Year</small></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Har Sahay Hospital, Jaipur</strong></td>
+                      <td>Consultant Gynaecologist<br /><small style={{ color: '#666' }}>7 Months</small></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cocoon Hospital, Jaipur</strong></td>
+                      <td>Consultant Gynaecologist<br /><small style={{ color: '#666' }}>4 Months</small></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Navyam Hospital, Jaipur</strong></td>
+                      <td>Fellowship in Laparoscopic Surgery<br /><small style={{ color: '#666' }}>4 Months</small></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <div className="profile-block">
@@ -66,34 +131,54 @@ export default function About({ setPage }) {
 
           <div className="profile-col-right">
             <div className="profile-block">
-              <h3>Areas of Care</h3>
+              <h3>Specializations & Areas of Expertise</h3>
               <ul className="details-bullet-list">
-                <li>Pre-pregnancy counseling & preconception checks</li>
-                <li>High-risk pregnancy management & maternal diagnostics</li>
-                <li>Polycystic Ovarian Syndrome (PCOS/PCOD) management</li>
-                <li>Hormonal imbalances & menstrual health counseling</li>
-                <li>Infertility solutions & ovulation induction</li>
-                <li>Preventive women's healthcare & cervical screenings</li>
+                <li><strong>Infertility Solutions:</strong> Pre-conception counseling, follicular monitoring, ovulation induction & fertility evaluation.</li>
+                <li><strong>Gynae Laparoscopic Surgery:</strong> Minimally invasive procedures for ovarian cysts, fibroids, endometriosis & diagnostic laparoscopy.</li>
+                <li><strong>Ultrasonography:</strong> Advanced pelvic & obstetric diagnostic ultrasound scans.</li>
+                <li><strong>High-Risk Obstetrics:</strong> Antenatal care, maternal monitoring & pre-eclampsia management.</li>
+                <li><strong>PCOS/PCOD & Hormonal Health:</strong> Evidence-based cycle regulation, metabolic management & lifestyle guidance.</li>
+                <li><strong>Preventive Healthcare:</strong> Cervical cancer screening (Pap Smear), HPV guidance & wellness checks.</li>
               </ul>
             </div>
 
             <div className="profile-block">
-              <h3>Clinical Interests</h3>
-              <p>Dr. Aditi's key clinical interests include adolescent health guidance, menopause transitioning management, reproductive health education, and evidence-based PCOS correction protocols. She is active in clinical research and educational publishing.</p>
+              <h3>Practice Setup & Clinical Locations</h3>
+              <div style={{ background: '#fff', padding: '20px', borderRadius: '12px', border: '1px solid #f1ece1', marginBottom: '15px' }}>
+                <h4 style={{ fontFamily: 'var(--font-serif)', color: 'var(--primary-color)', marginBottom: '6px', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Building2 size={18} color="var(--primary-color)" /> Academic & Hospital Practice
+                </h4>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-color)', margin: 0 }}>
+                  <strong>BST Medical College & Hospital, Achrol, Jaipur</strong><br />
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-light)' }}>Working as Assistant Professor in Department of Obstetrics & Gynaecology.</span>
+                </p>
+              </div>
+
+              <div style={{ background: '#fff', padding: '20px', borderRadius: '12px', border: '1px solid #f1ece1' }}>
+                <h4 style={{ fontFamily: 'var(--font-serif)', color: 'var(--primary-color)', marginBottom: '6px', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <MapPin size={18} color="var(--primary-color)" /> Private Consultation Setup
+                </h4>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-color)', margin: 0 }}>
+                  <strong>Agarwal Clinic</strong><br />
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-light)' }}>Basement C, 99 Shivaji Marg, Tilak Nagar / Raja Park, Jaipur</span><br />
+                  <span style={{ fontSize: '0.85rem', color: 'var(--accent-color)', fontWeight: 600 }}>Timings: Mon – Sat (5:00 PM – 8:00 PM)</span>
+                </p>
+              </div>
             </div>
 
             <div className="profile-block">
               <h3>At a Glance</h3>
               <ul className="details-bullet-list">
-                <li><strong>Location:</strong> Jaipur, Rajasthan, India</li>
-                <li><strong>Clinic:</strong> Basement C, 99 Shivaji Marg, Tilak Nagar, Jaipur</li>
-                <li><strong>Consultation:</strong> In-person & Online Video Consultations</li>
+                <li><strong>Designation:</strong> Assistant Professor (OBGY)</li>
+                <li><strong>Experience:</strong> 6+ Years Post-MBBS Clinical Experience</li>
+                <li><strong>MBBS:</strong> Jhalawar Medical College (2013)</li>
+                <li><strong>MS OBGY:</strong> SMS Medical College Jaipur (2020)</li>
+                <li><strong>Specialties:</strong> Infertility & Laparoscopic Surgery</li>
+                <li><strong>Fellowships:</strong> Laparoscopic Surgery & Ultrasound</li>
+                <li><strong>Consultation:</strong> In-person (Agarwal Clinic Raja Park) & Online Video Calls</li>
                 <li><strong>Languages:</strong> English, Hindi</li>
-                <li><strong>Specialty:</strong> Obstetrics & Gynaecology</li>
               </ul>
             </div>
-
-
 
           </div>
 

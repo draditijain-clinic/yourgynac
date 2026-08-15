@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Play, ArrowLeft, ArrowUpRight, ExternalLink, Eye } from 'lucide-react';
+import { Search, Play, ArrowLeft, ArrowUpRight, ExternalLink, Eye, CheckCircle, Zap } from 'lucide-react';
 import { initialVideosData, formatStat } from '../data/videos';
 import SEO from './SEO';
 
@@ -326,7 +326,7 @@ function VideoDetailView({ video, onBack, allVideos, onVideoClick, setPage }) {
           <h1>{video.title}</h1>
           <div className="hl-detail-meta">
             <span>{video.topic}</span>
-            {video.doctorReviewed && <span className="reviewed-badge">✓ Physician Reviewed by Dr. Aditi Jain</span>}
+            {video.doctorReviewed && <span className="reviewed-badge" style={{ display: 'inline-flex', alignItems: 'center' }}><CheckCircle size={14} style={{ marginRight: '4px' }} /> Physician Reviewed by Dr. Aditi Jain</span>}
             {video.views && <span>• {formatStat(video.views)} views</span>}
             {video.publishedDate && <span>• {new Date(video.publishedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>}
           </div>
@@ -363,8 +363,8 @@ function VideoDetailView({ video, onBack, allVideos, onVideoClick, setPage }) {
               borderRadius: '8px',
               marginBottom: '30px'
             }}>
-              <h4 style={{ color: 'var(--primary-color)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
-                ⚡ QUICK ANSWER
+              <h4 style={{ color: 'var(--primary-color)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'flex', alignItems: 'center' }}>
+                <Zap size={14} color="#f59e0b" style={{ marginRight: '6px' }} /> QUICK ANSWER
               </h4>
               <p style={{ fontSize: '1rem', color: 'var(--primary-dark)', margin: 0, lineHeight: '1.6', fontWeight: 500 }}>
                 {video.quickAnswer}

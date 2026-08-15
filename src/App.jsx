@@ -164,23 +164,34 @@ export default function App() {
   const renderHomeContent = () => (
     <>
       <SEO 
-        title="Dr. Aditi Jain | Gynaecologist in Jaipur | Women's Health"
-        description="Dr. Aditi Jain is a gynaecologist in Jaipur offering personalised women's health, pregnancy and gynaecological consultations at Agarwal Clinic, Tilak Nagar."
+        title="Dr. Aditi Jain | Assistant Professor, Obstetrician & Gynaecologist | Jaipur"
+        description="Dr. Aditi Jain is an Assistant Professor, Infertility Specialist & Gynae Laparoscopic Surgeon in Jaipur (6+ yrs exp, MBBS Jhalawar, MS SMS Jaipur) consulting at Agarwal Clinic Raja Park & BST Medical College Achrol."
         path="/"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
             {
+              "@type": "WebSite",
+              "@id": "https://yourgynac.vercel.app/#website",
+              "url": "https://yourgynac.vercel.app/",
+              "name": "Dr. Aditi Jain – Women's Clinic",
+              "publisher": {
+                "@id": "https://yourgynac.vercel.app/#doctor"
+              }
+            },
+            {
               "@type": ["Physician", "MedicalClinic", "LocalBusiness"],
               "@id": "https://yourgynac.vercel.app/#clinic",
               "name": "Dr. Aditi Jain – Women's Clinic",
+              "alternateName": "YourGynac",
               "image": "https://yourgynac.vercel.app/images/p1.png",
               "url": "https://yourgynac.vercel.app/",
               "telephone": "+917296897975",
+              "email": "draditijainclinic96@gmail.com",
               "priceRange": "₹₹",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar",
+                "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar / Raja Park",
                 "addressLocality": "Jaipur",
                 "addressRegion": "Rajasthan",
                 "postalCode": "302004",
@@ -191,10 +202,12 @@ export default function App() {
                 "latitude": 26.8995079,
                 "longitude": 75.8315183
               },
+              "hasMap": "https://maps.app.goo.gl/wvmtEigQBwPn1A7T9",
               "medicalSpecialty": [
                 "Obstetrics",
                 "Gynecology",
-                "Laparoscopic Surgery"
+                "Laparoscopic Surgery",
+                "ReproductiveEndocrinology"
               ],
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
@@ -202,6 +215,84 @@ export default function App() {
                 "opens": "17:00",
                 "closes": "20:00"
               }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://yourgynac.vercel.app/#doctor",
+              "name": "Dr. Aditi Jain",
+              "jobTitle": "Assistant Professor, Obstetrician & Gynaecologist",
+              "description": "Assistant Professor of Obstetrics & Gynaecology, Infertility Specialist, and Gynae Laparoscopic Surgeon in Jaipur with over 6 years of clinical experience post-MBBS.",
+              "url": "https://yourgynac.vercel.app/about",
+              "image": "https://yourgynac.vercel.app/images/p2.png",
+              "telephone": "+917296897975",
+              "email": "draditijainclinic96@gmail.com",
+              "alumniOf": [
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "SMS Medical College, Jaipur, Rajasthan"
+                },
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "Jhalawar Medical College, Rajasthan"
+                }
+              ],
+              "worksFor": [
+                {
+                  "@type": "MedicalOrganization",
+                  "name": "Balveer Singh Tomar (BST) Medical College, Achrol, Jaipur"
+                },
+                {
+                  "@type": "MedicalClinic",
+                  "name": "Agarwal Clinic, Raja Park, Jaipur"
+                }
+              ],
+              "hasCredential": [
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "degree",
+                  "name": "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
+                  "recognizedBy": {
+                    "@type": "MedicalOrganization",
+                    "name": "Jhalawar Medical College, Rajasthan (2013 Batch)"
+                  }
+                },
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "degree",
+                  "name": "Master of Surgery (MS) in Obstetrics & Gynaecology",
+                  "recognizedBy": {
+                    "@type": "MedicalOrganization",
+                    "name": "SMS Medical College, Jaipur (2020 Batch)"
+                  }
+                },
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "fellowship",
+                  "name": "Fellowship in Laparoscopic Surgery",
+                  "recognizedBy": {
+                    "@type": "MedicalOrganization",
+                    "name": "Navyam Hospital, Jaipur"
+                  }
+                },
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "fellowship",
+                  "name": "Fellowship in Ultrasonography (Ultrasound)"
+                }
+              ],
+              "sameAs": [
+                "https://www.instagram.com/draditi_explains_women/",
+                "https://maps.app.goo.gl/wvmtEigQBwPn1A7T9",
+                "https://yourgynac.vercel.app/"
+              ],
+              "knowsAbout": [
+                "Infertility Treatment",
+                "Gynae Laparoscopic Surgery",
+                "Obstetrics & Gynaecology",
+                "Ultrasonography",
+                "High-Risk Pregnancy Care",
+                "PCOS/PCOD Management"
+              ]
             }
           ]
         }}
@@ -653,9 +744,9 @@ export default function App() {
           <div className="intro-content">
             <span className="tagline">Consultant Profile</span>
             <h2>{API_CONFIG.DOCTOR_NAME}</h2>
-            <p className="credentials-subtitle">{API_CONFIG.QUALIFICATIONS} | SMS Medical College Alumna</p>
+            <p className="credentials-subtitle">Assistant Professor (OBGY) | MBBS · MS OBGY</p>
             <p className="bio-summary">
-              Dr. Aditi Jain is a specialized Consultant Obstetrician and Gynaecologist. Educated at the prestigious SMS Medical College in Jaipur, her clinical methodology centers around patient-focused decisions, rigorous clinical evidence, and complete diagnostic privacy.
+              Dr. Aditi Jain is an Assistant Professor of Obstetrics & Gynaecology, Infertility Specialist, and Gynae Laparoscopic Surgeon with 6+ years of post-MBBS clinical experience. Educated at Jhalawar Medical College and SMS Medical College Jaipur, she holds Fellowships in Laparoscopic Surgery & Ultrasonography.
             </p>
             <button className="btn btn-primary" onClick={() => { setPage('about'); window.scrollTo({ top: 0 }); }} style={{ marginTop: '20px' }}>
               Meet the Doctor

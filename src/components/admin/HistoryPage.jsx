@@ -45,7 +45,7 @@ export default function HistoryPage() {
     setProcessingId(bookingId);
     try {
       await adminApi.cancelBooking(bookingId, "Cancelled by Admin");
-      if (showToast) showToast(`✓ Booking ${bookingId} cancelled.`, "info");
+      if (showToast) showToast(`Booking ${bookingId} cancelled.`, "info");
       loadHistory();
     } catch (err) {
       if (showToast) showToast("Failed to cancel: " + err.message, "error");
@@ -55,11 +55,11 @@ export default function HistoryPage() {
   };
 
   const handleDelete = async (bookingId) => {
-    if (!window.confirm(`⚠️ PERMANENT DELETE: Are you sure you want to delete booking ${bookingId} from the database?`)) return;
+    if (!window.confirm(`PERMANENT DELETE: Are you sure you want to delete booking ${bookingId} from the database?`)) return;
     setProcessingId(bookingId);
     try {
       await adminApi.deleteBooking(bookingId);
-      if (showToast) showToast(`✓ Booking ${bookingId} permanently deleted.`, "success");
+      if (showToast) showToast(`Booking ${bookingId} permanently deleted.`, "success");
       loadHistory();
     } catch (err) {
       if (showToast) showToast("Failed to delete: " + err.message, "error");

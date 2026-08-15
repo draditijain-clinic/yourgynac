@@ -23,11 +23,11 @@ export default function Footer({ setPage }) {
               <img src="/images/logos.png" alt="Dr. Aditi Jain Logo" className="f-logo-img" />
               <div className="f-logo-text">
                 <span className="f-doc-name">{API_CONFIG.DOCTOR_NAME}</span>
-                <span className="f-doc-qual">{API_CONFIG.QUALIFICATIONS}</span>
+                <span className="f-doc-qual">Assistant Professor | MBBS, MS OBGY</span>
               </div>
             </div>
             <p className="f-desc">
-              Dedicated to evidence-based, compassionate care for every woman's health journey, from routine wellness to complex gynaecological needs.
+              Assistant Professor (OBGY), Infertility Specialist & Gynae Laparoscopic Surgeon with 6+ years experience. Dedicated to patient-first, evidence-based care.
             </p>
             <div className="f-contact-chips">
               <a href={`tel:${API_CONFIG.PHONE}`} className="f-chip">

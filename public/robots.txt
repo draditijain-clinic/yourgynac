@@ -1,12 +1,37 @@
+# Allow all standard search engines and AI generative engines
 User-agent: *
 Allow: /
 Allow: /images/
 Allow: /assets/
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /admin
 Disallow: /admin/
-Disallow: /login
-Disallow: /api/
-Disallow: /private/
 Disallow: /confirmation
 
+# Dedicated AI & Search Engine Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap & LLM Knowledge File
 Sitemap: https://yourgynac.vercel.app/sitemap.xml
+Link: https://yourgynac.vercel.app/llms.txt; rel="llms-txt"
+

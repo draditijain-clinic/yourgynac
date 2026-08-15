@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Video } from 'lucide-react';
+import { Calendar, Video, ExternalLink, MapPin } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import { API_CONFIG } from '../config';
@@ -25,17 +25,19 @@ export default function Hero({ setPage }) {
             className="viral-reel-badge"
           >
             <span className="badge-tag">VIRAL REEL</span>
-            <span className="badge-text">1M+ Views: Watch Dr. Aditi's Viral Video ↗</span>
+            <span className="badge-text" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              1M+ Views: Watch Dr. Aditi's Viral Video <ExternalLink size={12} style={{ marginLeft: '4px' }} />
+            </span>
           </a>
           
-          <span className="hero-eyebrow">DR. ADITI JAIN · WOMEN'S HEALTHCARE · JAIPUR</span>
+          <span className="hero-eyebrow">DR. ADITI JAIN · ASSISTANT PROFESSOR (OBGY) · JAIPUR</span>
           
           <h1 style={{ minHeight: '120px' }}>
             Women's Health, Without the Awkwardness.
           </h1>
 
           <p className="hero-subtext">
-            Dr. Aditi Jain is a gynaecologist in Jaipur providing personalised consultations for women's health, pregnancy and common gynaecological concerns, with online and in-clinic appointments available.
+            Dr. Aditi Jain is an Assistant Professor, Infertility Specialist, and Gynae Laparoscopic Surgeon in Jaipur with 6+ years experience, providing personalized consultations for women's health, pregnancy, and laparoscopic gynaecological care.
           </p>
           <div className="hero-actions">
             <button 
@@ -64,7 +66,7 @@ export default function Hero({ setPage }) {
           <div className="visual-frame">
             <div className="frame-border"></div>
             <div className="image-wrapper">
-              <img src="/images/p1.png" alt="Dr. Aditi Jain portrait - Gynaecologist in Jaipur" />
+              <img src="/images/p1.png" alt="Dr. Aditi Jain portrait - Assistant Professor Gynaecologist in Jaipur" />
             </div>
           </div>
         </motion.div>
@@ -72,8 +74,8 @@ export default function Hero({ setPage }) {
 
       {/* Trust & Location Banner */}
       <div className="location-trust-banner" style={{ background: '#f5eef0', borderTop: '1px solid #e9dede', borderBottom: '1px solid #e9dede', padding: '12px 0', textAlign: 'center', fontSize: '0.9rem', color: 'var(--primary-dark)' }}>
-        <div className="container">
-          📍 <strong>Consult Dr. Aditi Jain at Agarwal Clinic, Tilak Nagar, Jaipur.</strong>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+          <MapPin size={16} color="var(--primary-color)" /> <strong>Consult Dr. Aditi Jain at Agarwal Clinic, Raja Park (Tilak Nagar), Jaipur • Assistant Professor at BST Medical College Achrol</strong>
         </div>
       </div>
 
@@ -81,20 +83,20 @@ export default function Hero({ setPage }) {
       <div className="trust-strip">
         <div className="container trust-grid">
           <div className="trust-item">
+            <span className="trust-label">DESIGNATION</span>
+            <span className="trust-value">Assistant Professor (OBGY)</span>
+          </div>
+          <div className="trust-item">
             <span className="trust-label">QUALIFICATIONS</span>
             <span className="trust-value">MBBS · MS OBGY</span>
           </div>
           <div className="trust-item">
-            <span className="trust-label">ALUMNA</span>
-            <span className="trust-value">SMS Medical College, Jaipur</span>
-          </div>
-          <div className="trust-item">
             <span className="trust-label">SPECIALITY</span>
-            <span className="trust-value">Gynaecologist & Laparoscopic Surgeon</span>
+            <span className="trust-value">Infertility & Laparoscopy Surgeon</span>
           </div>
           <div className="trust-item">
             <span className="trust-label">EXPERIENCE</span>
-            <span className="trust-value">5–6 Years Experience</span>
+            <span className="trust-value">6+ Years Post-MBBS Exp.</span>
           </div>
         </div>
       </div>

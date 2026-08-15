@@ -8,39 +8,35 @@ export default function FAQPage({ setPage }) {
   const faqs = [
     {
       question: "Who is Dr. Aditi Jain?",
-      answer: "Dr. Aditi Jain is a Consultant Obstetrician & Gynaecologist in Jaipur with MBBS and MS OBGY qualifications from SMS Medical College, Jaipur, specializing in women's health, pregnancy care, and laparoscopic gynaecological surgery."
+      answer: "Dr. Aditi Jain is an Assistant Professor, Obstetrician & Gynaecologist, Infertility Specialist, and Gynae Laparoscopic Surgeon in Jaipur with over 6 years of post-MBBS clinical experience. She completed her MBBS from Jhalawar Medical College (2013 batch) and MS in Obstetrics & Gynaecology from SMS Medical College, Jaipur (2020 batch), along with Fellowships in Laparoscopic Surgery and Ultrasound."
     },
     {
-      question: "Where is Dr. Aditi Jain's clinic?",
-      answer: "Dr. Aditi Jain consults at Agarwal Clinic, located at Basement C, 99 Shivaji Marg, Tilak Nagar, Jaipur, Rajasthan 302004."
+      question: "What are Dr. Aditi Jain's qualifications and fellowships?",
+      answer: "Dr. Aditi holds an MBBS degree from Jhalawar Medical College (2013), an MS in Obstetrics & Gynaecology from SMS Medical College, Jaipur (2020), a Fellowship in Laparoscopic Surgery from Navyam Hospital, and a Fellowship in Diagnostic Ultrasonography (Ultrasound)."
+    },
+    {
+      question: "Where does Dr. Aditi Jain practice?",
+      answer: "Dr. Aditi Jain practices as an Assistant Professor at Balveer Singh Tomar (BST) Medical College, Achrol, Jaipur, and manages her private consultation practice at Agarwal Clinic, Basement C, 99 Shivaji Marg, Tilak Nagar / Raja Park, Jaipur."
+    },
+    {
+      question: "What hospital experience does Dr. Aditi Jain have?",
+      answer: "Dr. Aditi has served across top hospitals in Jaipur including Zenana Hospital Chandpole (1 year), Har Sahay Hospital (7 months), Cocoon Hospital (4 months), Navyam Hospital (4 months fellowship), and is currently working as Assistant Professor at BST Medical College, Achrol."
     },
     {
       question: "How do I book an appointment?",
-      answer: "You can request an appointment online through the booking page on this website or contact the clinic directly via phone or WhatsApp at +91 72968 97975."
+      answer: "You can request an in-clinic appointment at Agarwal Clinic or an online video consultation through the booking page on this website or contact the clinic directly via phone or WhatsApp at +91 72968 97975."
     },
     {
-      question: "Does Dr. Aditi Jain offer online consultation?",
-      answer: "Yes, Dr. Aditi Jain offers secure online video consultations for patients who prefer to consult from home, review reports, or require follow-ups."
-    },
-    {
-      question: "How does online consultation work?",
-      answer: "After requesting an online slot, your request is reviewed by the clinic coordinator. Upon confirmation, you receive confirmation details and a Google Meet link to join the video session at your scheduled time."
+      question: "Does Dr. Aditi Jain offer online video consultations?",
+      answer: "Yes, Dr. Aditi Jain offers secure online video consultations for patients who prefer to consult from home, review reports, or require follow-up guidance."
     },
     {
       question: "Which women's health concerns can I discuss?",
-      answer: "You can consult for PCOS/PCOD management, period and menstrual irregularities, pregnancy and antenatal care, pre-conception planning, hormonal imbalances, pelvic health, menopause transitions, and general gynaecological concerns."
+      answer: "You can consult for infertility evaluations, laparoscopic gynaecological procedures, PCOS/PCOD management, period irregularities, pregnancy and high-risk antenatal care, pre-conception planning, hormonal balances, and routine women's wellness."
     },
     {
-      question: "Where is Agarwal Clinic in Jaipur?",
-      answer: "Agarwal Clinic is located in Tilak Nagar (Suraj Nagar area), Jaipur, conveniently accessible via Shivaji Marg."
-    },
-    {
-      question: "How can I contact the clinic?",
-      answer: "You can call or WhatsApp the clinic at +91 72968 97975 or email draditijainclinic96@gmail.com."
-    },
-    {
-      question: "Can I request an evening appointment?",
-      answer: "Yes, regular clinic consulting hours are Monday through Saturday from 5:00 PM to 8:00 PM."
+      question: "What are the clinic consultation timings?",
+      answer: "Private consultations at Agarwal Clinic in Raja Park / Tilak Nagar, Jaipur are available Monday through Saturday from 5:00 PM to 8:00 PM."
     }
   ];
 

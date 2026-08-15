@@ -19,21 +19,17 @@ export default function ClinicIntro({ setPage }) {
         </div>
         
         <div className="intro-content slide-in-right">
-          <span className="eyebrow">WELCOME TO AGARWAL CLINIC</span>
+          <span className="eyebrow">PATIENT-FIRST WOMEN'S CARE</span>
           <h2>A Modern Approach to Women's Healthcare</h2>
           <p className="intro-text">
-            Our clinic is designed to be a safe, comforting, and advanced medical environment. 
-            We combine state-of-the-art diagnostic equipment with compassionate, patient-first 
-            consultations. Whether you are visiting for routine preventive care, prenatal 
-            monitoring, or complex gynaecological conditions, you will receive personalized 
-            attention in complete privacy.
+            Led by <strong>Dr. Aditi Jain</strong> (Assistant Professor, Infertility Specialist & Gynae Laparoscopic Surgeon with 6+ years clinical experience), our clinic provides compassionate, evidence-based care in a private, supportive environment. Whether visiting for fertility guidance, prenatal care, PCOS management, or laparoscopic procedures, you receive complete individual focus.
           </p>
           
           <ul className="intro-highlights">
-            <li>State-of-the-art diagnostic tools</li>
-            <li>Comfortable, private waiting areas</li>
-            <li>Experienced and compassionate staff</li>
-            <li>Seamless appointment and consultation process</li>
+            <li>Specialized Infertility & Laparoscopic Surgery Expertise</li>
+            <li>Academic Excellence (Assistant Professor @ BST Medical College)</li>
+            <li>Fellowship-trained in Laparoscopy & Diagnostic Ultrasonography</li>
+            <li>Comfortable, completely private consultation environment</li>
           </ul>
 
           <button className="btn btn-outline" onClick={() => setPage('about')} style={{ marginTop: '20px' }}>
@@ -136,7 +132,7 @@ export default function ClinicIntro({ setPage }) {
         }
 
         .intro-highlights li::before {
-          content: "✓";
+          content: "\\2713";
           position: absolute;
           left: 0;
           color: var(--accent-color);

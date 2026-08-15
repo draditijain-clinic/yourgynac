@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageSquare, Instagram, Mail, Calendar, Navigation, Clock } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, Instagram, Mail, Calendar, Navigation, Clock, ExternalLink } from 'lucide-react';
 import { API_CONFIG } from '../config';
 import SEO from './SEO';
 
@@ -29,9 +29,9 @@ export default function Contact({ setPage }) {
         
         {/* Contact info details */}
         <div className="contact-info-panel">
-          <span className="eyebrow">JAIPUR CLINIC LOCATION</span>
-          <h2>Visit the clinic in Jaipur</h2>
-          <p className="contact-desc">Dr. Aditi Jain consults patients at Agarwal Clinic in Tilak Nagar, Jaipur. Request an in-clinic appointment or an online video consultation.</p>
+          <span className="eyebrow">PRACTICE LOCATIONS & CONTACT</span>
+          <h2>Consultation & Practice Locations</h2>
+          <p className="contact-desc">Dr. Aditi Jain consults patients privately at Agarwal Clinic, Raja Park (Tilak Nagar), Jaipur and serves as Assistant Professor at Balveer Singh Tomar (BST) Medical College, Achrol, Jaipur.</p>
 
           <div className="info-list">
             
@@ -40,10 +40,23 @@ export default function Contact({ setPage }) {
                 <MapPin size={18} color="var(--primary-color)" />
               </div>
               <div>
-                <h5>Clinic Address</h5>
+                <h5>Private Setup (Clinic)</h5>
                 <p>
                   <strong>{API_CONFIG.CLINIC_FACILITY}</strong><br />
-                  {API_CONFIG.CLINIC_ADDRESS}
+                  {API_CONFIG.CLINIC_ADDRESS} (Raja Park / Tilak Nagar)
+                </p>
+              </div>
+            </div>
+
+            <div className="info-item">
+              <div className="icon-box">
+                <MapPin size={18} color="var(--primary-color)" />
+              </div>
+              <div>
+                <h5>Academic & Hospital Setup</h5>
+                <p>
+                  <strong>BST Medical College (Balveer Singh Tomar Medical College)</strong><br />
+                  Achrol, Jaipur, Rajasthan (Working as Assistant Professor)
                 </p>
               </div>
             </div>
@@ -53,7 +66,7 @@ export default function Contact({ setPage }) {
                 <Clock size={18} color="var(--primary-color)" />
               </div>
               <div>
-                <h5>Consultation Timings</h5>
+                <h5>Private Clinic Timings</h5>
                 <p>{API_CONFIG.TIMINGS}</p>
               </div>
             </div>
@@ -132,7 +145,7 @@ export default function Contact({ setPage }) {
                 rel="noopener noreferrer" 
                 className="btn btn-primary map-overlay-btn"
               >
-                <Navigation size={14} style={{ marginRight: '6px' }} /> View Larger Map / Directions ↗
+                <Navigation size={14} style={{ marginRight: '6px' }} /> View Larger Map / Directions <ExternalLink size={13} style={{ marginLeft: '4px' }} />
               </a>
             </div>
           </div>

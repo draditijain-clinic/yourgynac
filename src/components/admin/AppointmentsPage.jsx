@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { adminApi } from '../../services/adminApi';
 import { 
   Check, X, Calendar as CalendarIcon, Clock, MessageSquare, 
-  Search, Filter, MapPin, Video, Eye
+  Search, Filter, MapPin, Video, Eye, AlertTriangle, ExternalLink
 } from 'lucide-react';
 import WhatsAppComposer from './WhatsAppComposer';
 import { useToast } from '../ToastNotification';
@@ -133,7 +133,7 @@ export default function AppointmentsPage() {
 
     try {
       await adminApi.acceptBooking(bId, date, time, duration, 'Admin', meetUrl);
-      if (showToast) showToast("✓ Appointment confirmed successfully & WhatsApp opened!", "success");
+      if (showToast) showToast("Appointment confirmed successfully & WhatsApp opened!", "success");
       loadAppointments(); // refresh
     } catch (err) {
       if (showToast) showToast("Failed to confirm appointment: " + err.message, "error");
@@ -148,7 +148,7 @@ export default function AppointmentsPage() {
       setProcessing(true);
       try {
         await adminApi.rejectBooking(apt['Booking ID'] || apt.bookingId, 'Admin');
-        if (showToast) showToast("✓ Appointment request rejected.", "info");
+        if (showToast) showToast("Appointment request rejected.", "info");
         loadAppointments();
       } catch (err) {
         if (showToast) showToast("Failed to reject: " + err.message, "error");
@@ -368,9 +368,12 @@ export default function AppointmentsPage() {
                       borderRadius: '6px',
                       fontSize: '0.85rem',
                       color: '#991b1b',
-                      marginBottom: '15px'
+                      marginBottom: '15px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px'
                     }}>
-                      ⚠️ <strong>Time Conflict:</strong> You already have a confirmed booking with <strong>{conflictingApt['Patient Name']}</strong> at this time.
+                      <AlertTriangle size={16} color="#dc2626" /> <span><strong>Time Conflict:</strong> You already have a confirmed booking with <strong>{conflictingApt['Patient Name']}</strong> at this time.</span>
                     </div>
                   );
                 }
@@ -396,9 +399,9 @@ export default function AppointmentsPage() {
                       href="https://meet.new"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{fontSize:'0.78rem', color:'var(--primary-color)', fontWeight:600, textDecoration:'none', background:'#f1ece1', padding:'2px 8px', borderRadius:'4px'}}
+                      style={{fontSize:'0.78rem', color:'var(--primary-color)', fontWeight:600, textDecoration:'none', background:'#f1ece1', padding:'2px 8px', borderRadius:'4px', display:'inline-flex', alignItems:'center'}}
                     >
-                      + Create Meet Link ↗
+                      + Create Meet Link <ExternalLink size={12} style={{ marginLeft: '4px' }} />
                     </a>
                   </label>
                   <input

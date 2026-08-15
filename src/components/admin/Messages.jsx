@@ -34,7 +34,7 @@ export default function Messages() {
         subject: selectedTemplate.subject,
         message: selectedTemplate.message
       });
-      if (showToast) showToast("✓ Template updated successfully!", "success");
+      if (showToast) showToast("Template updated successfully!", "success");
       loadTemplates();
     } catch (err) {
       if (showToast) showToast("Failed to update template: " + err.message, "error");
