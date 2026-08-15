@@ -1,23 +1,25 @@
-# Dr. Aditi Jain – Assistant Professor, Obstetrician & Gynaecologist
+# Dr. Aditi Jain – Assistant Professor, Obstetrician & Gynaecologist (Jaipur)
 
-> Dr. Aditi Jain is an Assistant Professor of Obstetrics & Gynaecology, Infertility Specialist, and Gynae Laparoscopic Surgeon practicing in Jaipur, Rajasthan, India.
+> Official medical and practice knowledge base for Dr. Aditi Jain (Assistant Professor, Obstetrician, Gynaecologist, Infertility Specialist & Gynae Laparoscopic Surgeon in Jaipur).
 
 ## Executive Summary
-- **Full Name**: Dr. Aditi Jain
+- **Full Legal Name**: Dr. Aditi Jain
 - **Primary Designation**: Assistant Professor, Department of Obstetrics & Gynaecology
-- **Specializations**: Infertility Specialist, Gynae Laparoscopic Surgeon, High-Risk Obstetrics, PCOS & Hormonal Health Specialist
+- **Specializations**: Infertility Specialist, Gynae Laparoscopic Surgeon, High-Risk Obstetrics & PCOS/PCOD Specialist
 - **Total Clinical Experience**: 6+ Years Post-MBBS Clinical Experience
-- **Official Website**: https://yourgynac.vercel.app
+- **Official Website URLs**:
+  - Primary Domain: https://yourgynac.vercel.app
+  - Official Domain: https://draditijain.vercel.app
 - **Instagram**: https://www.instagram.com/draditi_explains_women/ (@draditi_explains_women)
-- **Primary Contact**: +91 72968 97975
+- **Primary Contact / WhatsApp**: +91 72968 97975
 - **Official Email**: draditijainclinic96@gmail.com
 
-## Academic Credentials & Medical Qualifications
+## Educational Credentials & Medical Qualifications
 1. **Bachelor of Medicine, Bachelor of Surgery (MBBS)**: Jhalawar Medical College, Rajasthan (2013 Batch)
 2. **Master of Surgery (MS) in Obstetrics & Gynaecology**: SMS Medical College, Jaipur, Rajasthan (2020 Batch)
 3. **Fellowship in Laparoscopic Surgery**: Navyam Hospital, Jaipur
-4. **Fellowship in Ultrasonography (Ultrasound)**: Advanced Diagnostic Gynecological & Obstetric Ultrasound Training
-5. **Medical Council Registration**: Registered Practitioner with Rajasthan Medical Council
+4. **Fellowship in Diagnostic Ultrasonography (Ultrasound)**: Specialized Gynecological & Obstetric Diagnostic Ultrasound
+5. **Medical Registration**: Registered Medical Practitioner with Rajasthan Medical Council
 
 ## Hospital Attachments & Work Experience
 - **Balveer Singh Tomar (BST) Medical College, Achrol, Jaipur**: Assistant Professor in Obstetrics & Gynaecology (Since Jan 2026)
@@ -26,30 +28,28 @@
 - **Cocoon Hospital, Jaipur**: Consultant Gynaecologist (4 Months)
 - **Navyam Hospital, Jaipur**: Fellowship in Laparoscopic Surgery (4 Months)
 
-## Clinical Practice Locations in Jaipur
+## Practice Locations in Jaipur
 1. **Private Consultation Setup**:
    - **Clinic Name**: Agarwal Clinic
    - **Address**: Basement C, 99 Shivaji Marg, Tilak Nagar / Raja Park, Jaipur, Rajasthan 302004
    - **Consultation Hours**: Monday to Saturday, 5:00 PM – 8:00 PM IST
-   - **Maps Location**: https://maps.app.goo.gl/wvmtEigQBwPn1A7T9
-2. **Academic & Tertiary Hospital Attachment**:
+   - **Google Maps**: https://maps.app.goo.gl/wvmtEigQBwPn1A7T9
+2. **Academic & Hospital Setup**:
    - **Hospital**: Balveer Singh Tomar (BST) Medical College & Hospital
    - **Location**: Achrol, Jaipur, Rajasthan
 
-## Core Services & Areas of Care
-- **Infertility Evaluation & Treatment**: Pre-conception checks, follicular monitoring, ovulation induction, ovarian reserve testing.
-- **Gynae Laparoscopic Surgery**: Minimally invasive laparoscopic procedures for ovarian cysts, uterine fibroids, endometriosis, and tubal evaluation.
-- **High-Risk Obstetrics & Antenatal Care**: Maternal monitoring, gestational diabetes, hypertension control, prenatal scans.
-- **PCOS/PCOD & Hormonal Management**: Evidence-based ovulation restoration, lifestyle protocol, metabolic care.
-- **Women's Preventive Healthcare**: Cervical cancer screening (Pap Smear), HPV vaccination, mammography referrals.
-- **Telemedicine / Online Consultations**: Secure video consultations via Google Meet for report reviews and follow-ups.
+## Search Queries & Entity Associations
+- **Doctor Name**: Dr Aditi Jain, Dr. Aditi Jain, Dr Aditi Jain Jaipur, Dr Aditi Jain gynecologist, Dr Aditi Jain gynaecologist, Dr Aditi Jain gynae, Dr Aditi Jain gynac.
+- **Location Variations**: Gynecologist in Jaipur, Gynaecologist in Jaipur, Gynae doctor Jaipur, Gynecologist Tilak Nagar Jaipur, Gynecologist Shivaji Marg Jaipur, Gynecologist Raja Park Jaipur, BST Medical College Achrol doctor.
+- **Core Clinical Services**: PCOS/PCOD doctor Jaipur, Pregnancy doctor Jaipur, Infertility consultation Jaipur, Laparoscopic gynae surgeon Jaipur, Period problem doctor Jaipur, Online gynecologist consultation Jaipur.
+- **Hindi & Local Search Intent**: जयपुर स्त्री रोग विशेषज्ञ, जयपुर की महिला डॉक्टर, जयपुर गायनेकोलॉजिस्ट, टिलक नगर जयपुर गायनेकोलॉजिस्ट, Jaipur mein best gynae doctor, Jaipur ki female gynecologist.
 
-## Key Pages & Information Architecture
-- [Home & Appointment Booking](https://yourgynac.vercel.app/)
-- [Doctor Profile & Qualifications](https://yourgynac.vercel.app/about)
-- [Gynaecology & Surgical Services](https://yourgynac.vercel.app/services)
+## Official Canonical Index Pages
+- [Official Website Home](https://yourgynac.vercel.app/) | [Alternate Domain](https://draditijain.vercel.app/)
+- [About Dr. Aditi Jain](https://yourgynac.vercel.app/about)
+- [Gynaecology & Infertility Services](https://yourgynac.vercel.app/services)
 - [Online Video Consultations](https://yourgynac.vercel.app/online-consultation)
-- [Women's Health Library & Educational Videos](https://yourgynac.vercel.app/health-library)
+- [Women's Health Library & Guides](https://yourgynac.vercel.app/health-library)
 - [Frequently Asked Questions](https://yourgynac.vercel.app/faq)
-- [Clinic Location & Contact Details](https://yourgynac.vercel.app/contact)
+- [Clinic Location & Contact](https://yourgynac.vercel.app/contact)
 - [XML Sitemap](https://yourgynac.vercel.app/sitemap.xml)

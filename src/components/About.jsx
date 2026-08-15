@@ -123,6 +123,19 @@ export default function About({ setPage }) {
               </div>
             </div>
 
+            <div className="profile-block" style={{ backgroundColor: '#faf6ee', padding: '24px', borderRadius: '12px', border: '1px solid #f1ece1', marginTop: '30px' }}>
+              <h3 style={{ color: 'var(--primary-color)', fontFamily: 'var(--font-serif)', marginBottom: '12px' }}>Choosing a Gynaecologist in Jaipur: Key Considerations for Patients</h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-color)', lineHeight: '1.7', marginBottom: '12px' }}>
+                Selecting a trusted <strong>gynaecologist in Jaipur</strong> is one of the most important decisions for a woman's reproductive, prenatal, and hormonal health. Whether seeking a <strong>women's health doctor in Jaipur</strong> for routine care, a <strong>PCOS doctor in Jaipur</strong>, or a specialized <strong>pregnancy doctor in Jaipur</strong>, consider the following clinical benchmarks:
+              </p>
+              <ul className="details-bullet-list" style={{ fontSize: '0.92rem', lineHeight: '1.6' }}>
+                <li><strong>Academic Qualifications & Training:</strong> Look for post-graduate degrees (MS or MD in OBGY) from renowned government medical colleges like SMS Medical College Jaipur, backed by specialized fellowships in laparoscopic surgery and diagnostic ultrasound.</li>
+                <li><strong>Clinical Experience & Hospital Background:</strong> Academic faculty roles (such as Assistant Professor) and tertiary hospital experience ensure the doctor handles complex cases and high-risk pregnancies with evidence-based protocols.</li>
+                <li><strong>Comprehensive Spectrum of Care:</strong> Ensure the doctor provides holistic care ranging from PCOS/PCOD guidance and period regularity to advanced infertility evaluation and minimally invasive gynae laparoscopy.</li>
+                <li><strong>Accessible Location & Setup:</strong> Convenience matters—having a private setup at <strong>Agarwal Clinic in Tilak Nagar / Raja Park, Jaipur</strong> along with secure online video consultation options makes continuous care seamless.</li>
+              </ul>
+            </div>
+
             <div className="profile-block">
               <h3>Approach to Patient Care</h3>
               <p>We prioritize listening above all. A clinical consultation should be a collaborative discussion where medical findings are explained simply, options are evaluated transparently, and decisions are reached together. We strive to provide a safe, respectful, and completely private clinical environment.</p>

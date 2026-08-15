@@ -31,12 +31,20 @@ export default function FAQPage({ setPage }) {
       answer: "Yes, Dr. Aditi Jain offers secure online video consultations for patients who prefer to consult from home, review reports, or require follow-up guidance."
     },
     {
-      question: "Which women's health concerns can I discuss?",
-      answer: "You can consult for infertility evaluations, laparoscopic gynaecological procedures, PCOS/PCOD management, period irregularities, pregnancy and high-risk antenatal care, pre-conception planning, hormonal balances, and routine women's wellness."
+      question: "When should I see a gynecologist for irregular periods or PCOS?",
+      answer: "You should consult a gynaecologist if your periods are consistently shorter than 21 days or longer than 35 days, if you miss consecutive cycles, or if irregular periods are accompanied by sudden weight changes, severe acne, or difficulty conceiving. Dr. Aditi Jain provides personalized diagnostic evaluations and lifestyle guidance for PCOS/PCOD."
     },
     {
-      question: "What are the clinic consultation timings?",
-      answer: "Private consultations at Agarwal Clinic in Raja Park / Tilak Nagar, Jaipur are available Monday through Saturday from 5:00 PM to 8:00 PM."
+      question: "What happens during an anomaly scan and what should I ask?",
+      answer: "An anomaly scan (conducted around 20–22 weeks of pregnancy) evaluates fetal organ development, placental location, amniotic fluid volume, and overall growth. Key questions to ask include checking placental position, baby growth measurements, amniotic fluid index, and structural anatomical clearance."
+    },
+    {
+      question: "What do first baby flutters feel like and when do they start?",
+      answer: "First baby movements (quickening) are often described as light fluttering, gentle gas bubbles, or soft tapping inside your lower abdomen. Most pregnant women begin feeling these flutters between 18 to 22 weeks of pregnancy."
+    },
+    {
+      question: "Can I consult Dr. Aditi Jain online for PCOS or pregnancy guidance?",
+      answer: "Yes, Dr. Aditi Jain provides secure online video consultations via Google Meet for report reviews, PCOS lifestyle guidance, pre-conception counseling, and routine pregnancy questions."
     }
   ];
 

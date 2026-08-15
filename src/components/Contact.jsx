@@ -7,22 +7,26 @@ export default function Contact({ setPage }) {
   return (
     <section className="contact-page-section">
       <SEO 
-        title="Dr. Aditi Jain Clinic | Tilak Nagar, Jaipur"
-        description="Find Dr. Aditi Jain at Agarwal Clinic, Tilak Nagar, Jaipur. Call, WhatsApp or get directions for your appointment."
+        title="Contact & Location | Dr. Aditi Jain | Gynecologist Tilak Nagar Jaipur"
+        description="Consult Dr. Aditi Jain at Agarwal Clinic, Basement C, 99 Shivaji Marg, Tilak Nagar / Raja Park, Jaipur. Call or WhatsApp +91 72968 97975 for appointments."
         path="/contact"
+        keywords="Dr Aditi Jain clinic, gynecologist Tilak Nagar Jaipur, gynaecologist near Tilak Nagar Jaipur, gynecologist Shivaji Marg Jaipur, Agarwal Clinic Jaipur, Dr Aditi Jain phone number, Dr Aditi Jain address"
         schema={{
           "@context": "https://schema.org",
           "@type": "MedicalClinic",
-          "name": "Dr. Aditi Jain Clinic",
+          "name": "Dr. Aditi Jain – Women's Clinic",
+          "alternateName": "Agarwal Clinic",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar",
+            "streetAddress": "Basement C, 99 Shivaji Marg, Tilak Nagar / Raja Park",
             "addressLocality": "Jaipur",
             "addressRegion": "Rajasthan",
             "postalCode": "302004",
             "addressCountry": "IN"
           },
-          "telephone": "+917296897975"
+          "telephone": "+917296897975",
+          "email": "draditijainclinic96@gmail.com",
+          "hasMap": "https://maps.app.goo.gl/wvmtEigQBwPn1A7T9"
         }}
       />
       <div className="container contact-grid fade-in-down">

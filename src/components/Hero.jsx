@@ -30,14 +30,14 @@ export default function Hero({ setPage }) {
             </span>
           </a>
           
-          <span className="hero-eyebrow">DR. ADITI JAIN · ASSISTANT PROFESSOR (OBGY) · JAIPUR</span>
+          <span className="hero-eyebrow">DR. ADITI JAIN · ASSISTANT PROFESSOR · GYNAECOLOGIST IN JAIPUR</span>
           
           <h1 style={{ minHeight: '120px' }}>
             Women's Health, Without the Awkwardness.
           </h1>
 
           <p className="hero-subtext">
-            Dr. Aditi Jain is an Assistant Professor, Infertility Specialist, and Gynae Laparoscopic Surgeon in Jaipur with 6+ years experience, providing personalized consultations for women's health, pregnancy, and laparoscopic gynaecological care.
+            Expert care from Dr. Aditi Jain (Assistant Professor, MBBS & MS OBGY SMS Medical College Jaipur)—trusted <strong>gynaecologist in Jaipur</strong> and <strong>gynae doctor in Tilak Nagar</strong>. Specializing as an <strong>infertility specialist</strong>, <strong>pregnancy doctor</strong>, <strong>PCOS specialist</strong>, and <strong>gynae laparoscopic surgeon</strong>.
           </p>
           <div className="hero-actions">
             <button 

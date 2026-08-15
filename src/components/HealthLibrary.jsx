@@ -76,13 +76,27 @@ export default function HealthLibrary({ setPage }) {
   // Extract unique categories that actually have published videos
   const availableCategories = ["ALL", ...new Set(publishedVideos.map(v => v.category))];
 
-  // Filter videos based on category and search
+  // Filter videos based on category and search with informal variant support
   const filteredVideos = publishedVideos.filter(v => {
     const matchesCategory = activeCategory === "ALL" || v.category === activeCategory;
-    const matchesSearch = v.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          v.topic.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          v.shortDescription.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return matchesCategory;
+
+    // Normalizing common search variants (gynac, gynae, gyno, gyne, pcos, etc.)
+    const matchesTitle = v.title.toLowerCase().includes(q);
+    const matchesTopic = v.topic.toLowerCase().includes(q);
+    const matchesDesc = v.shortDescription.toLowerCase().includes(q);
+    const matchesCategoryName = v.category.toLowerCase().includes(q);
+    const matchesQuickAnswer = v.quickAnswer ? v.quickAnswer.toLowerCase().includes(q) : false;
+
+    // Informal synonyms
+    const isGynaeSearch = ['gynac', 'gynae', 'gyno', 'gyne', 'gynec', 'gynaec'].some(term => q.includes(term));
+    const isPregnancySearch = ['preg', 'pregnant', 'baby', 'flutter', 'anomaly', 'deliver', 'husband'].some(term => q.includes(term));
+
+    const matchesSynonym = (isGynaeSearch && (v.category.includes('PREGNANCY') || v.topic.includes('Scan') || v.topic.includes('Movements'))) ||
+                           (isPregnancySearch && v.category.includes('PREGNANCY'));
+
+    return matchesCategory && (matchesTitle || matchesTopic || matchesDesc || matchesCategoryName || matchesQuickAnswer || matchesSynonym);
   });
 
   const handleVideoClick = (slug) => {

@@ -4,6 +4,7 @@
 export const API_CONFIG = {
   SCRIPT_URL: import.meta.env.VITE_SCRIPT_URL || '',
   SITE_URL: "https://yourgynac.vercel.app",
+  ALTERNATE_SITE_URL: "https://draditijain.vercel.app",
   
   // Doctor & Clinic Branding Info
   DOCTOR_NAME: "Dr. Aditi Jain",

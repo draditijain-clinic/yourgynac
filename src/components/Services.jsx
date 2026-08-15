@@ -150,6 +150,25 @@ export default function Services({ setPage }) {
         "Vaginal health and microbiome support guidance"
       ],
       prepare: "Write down your questions about birth control or symptoms. You can share this in complete confidence."
+    },
+    {
+      id: "laparoscopy",
+      title: "Gynae Laparoscopic Surgery",
+      brief: "Minimally invasive laparoscopic surgical procedures for ovarian cysts, fibroids, endometriosis, and fertility diagnostic evaluation.",
+      whatItIs: "Gynaecological laparoscopic surgery is a keyhole surgical technique that allows precise diagnosis and treatment of pelvic disorders with minimal scarring, reduced pain, and rapid recovery.",
+      whenToConsider: [
+        "Diagnosis or removal of ovarian cysts or uterine fibroids",
+        "Chronic pelvic pain suspecting endometriosis or adhesions",
+        "Tubal evaluation (chromopertubation) during infertility workup",
+        "Ectopic pregnancy management or laparoscopic hysterectomy advice"
+      ],
+      includes: [
+        "Pre-operative evaluation and surgical risk stratification",
+        "Laparoscopic cystectomy, myomectomy, or adhesiolysis guidance",
+        "Diagnostic laparoscopy and hysteroscopy for fertility evaluation",
+        "Post-operative recovery monitoring and follow-up care"
+      ],
+      prepare: "Bring all previous pelvic ultrasound scans, MRI reports, and medical blood work to your consultation."
     }
   ];
 
