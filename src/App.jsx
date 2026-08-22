@@ -131,20 +131,20 @@ export default function App() {
   // Update browser tab title dynamically based on active page
   useEffect(() => {
     const pageTitles = {
-      home: "Dr. Aditi Jain | Gynaecologist & Obstetrician Consultant | Jaipur",
-      about: "About Dr. Aditi Jain | MS Obstetrics & Gynaecology Consultant",
-      services: "Gynaecology, Maternity & Fertility Services | Dr. Aditi Jain",
-      consultation: "Secure Online Video Consultation | Dr. Aditi Jain",
-      library: "Women's Health Library & Education | Dr. Aditi Jain",
-      faq: "Frequently Asked Questions | Dr. Aditi Jain Clinic",
-      contact: "Clinic Location & Timings | Agarwal Clinic Jaipur",
-      appointment: "Book Consultation Appointment | Dr. Aditi Jain",
-      confirmation: "Appointment Registration Successful | Dr. Aditi Jain",
-      privacy: "Privacy Policy | Dr. Aditi Jain – Women’s Clinic",
-      disclaimer: "Medical Disclaimer | Dr. Aditi Jain – Women’s Clinic",
+      home: "Dr. Aditi Jain | Best Gynaecologist in Jaipur | Best Gynac Doctor Jaipur",
+      about: "About Dr. Aditi Jain | Best Gynaecologist & Gynac in Jaipur | SMS Medical College",
+      services: "Best Gynecologist Services in Jaipur | PCOS, Pregnancy & Fertility | Dr. Aditi Jain",
+      consultation: "Online Gynecologist Consultation Jaipur | Best Gynac Video Consult | Dr. Aditi Jain",
+      library: "Women's Health Library & Gynaecology Education | Dr. Aditi Jain Jaipur",
+      faq: "FAQ | Best Gynaecologist in Jaipur | Dr. Aditi Jain Clinic",
+      contact: "Contact Best Gynac in Jaipur | Agarwal Clinic Tilak Nagar | Dr. Aditi Jain",
+      appointment: "Book Appointment | Best Gynaecologist in Jaipur | Dr. Aditi Jain",
+      confirmation: "Appointment Confirmed | Dr. Aditi Jain | Gynaecologist Jaipur",
+      privacy: "Privacy Policy | Dr. Aditi Jain | Gynaecologist in Jaipur",
+      disclaimer: "Medical Disclaimer | Dr. Aditi Jain | Gynaecologist in Jaipur",
       admin: "Clinic Coordinator Portal | Dr. Aditi Jain"
     };
-    document.title = pageTitles[page] || "Dr. Aditi Jain – Women’s Clinic";
+    document.title = pageTitles[page] || "Dr. Aditi Jain | Best Gynaecologist in Jaipur";
   }, [page]);
 
   // Scroll to top on page change
@@ -164,8 +164,8 @@ export default function App() {
   const renderHomeContent = () => (
     <>
       <SEO 
-        title="Dr. Aditi Jain | Assistant Professor, Obstetrician & Gynaecologist | Jaipur"
-        description="Dr. Aditi Jain is an Assistant Professor, Infertility Specialist & Gynae Laparoscopic Surgeon in Jaipur (6+ yrs exp, MBBS Jhalawar, MS SMS Jaipur) consulting at Agarwal Clinic Raja Park & BST Medical College Achrol."
+        title="Dr. Aditi Jain | Best Gynaecologist in Jaipur | Best Gynac Doctor in Jaipur"
+        description="Dr. Aditi Jain is the best gynaecologist in Jaipur and a top-rated gynac doctor. Assistant Professor, Infertility Specialist & Gynae Laparoscopic Surgeon (6+ yrs exp, MBBS Jhalawar, MS SMS Jaipur) consulting at Agarwal Clinic Raja Park & BST Medical College Achrol."
         path="/"
         schema={{
           "@context": "https://schema.org",
@@ -405,10 +405,13 @@ export default function App() {
       {/* SECTION: Women's Healthcare in Jaipur (Local SEO) */}
       <section style={{ backgroundColor: 'var(--bg-color)', borderTop: '1px solid #f1ece1', borderBottom: '1px solid #f1ece1', padding: '80px 0' }}>
         <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
-          <span className="tagline">Local Care in Jaipur</span>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', color: 'var(--primary-color)', marginBottom: '15px' }}>Women's healthcare in Jaipur</h2>
-          <p style={{ fontSize: '1.05rem', color: 'var(--text-light)', lineHeight: '1.7', marginBottom: '30px' }}>
-            Looking for a gynaecologist in Jaipur? Dr. Aditi Jain provides personalised women's health consultations at Agarwal Clinic in Tilak Nagar, Jaipur, with online consultation options for patients who prefer to consult from home.
+          <span className="tagline">Best Gynaecologist in Jaipur</span>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', color: 'var(--primary-color)', marginBottom: '15px' }}>Trusted Women's Healthcare in Jaipur</h2>
+          <p style={{ fontSize: '1.05rem', color: 'var(--text-light)', lineHeight: '1.7', marginBottom: '16px' }}>
+            Looking for the <strong>best gynaecologist in Jaipur</strong> or a reliable <strong>gynac doctor in Jaipur</strong>? Dr. Aditi Jain is widely regarded as one of the <strong>top gynecologist doctors in Jaipur</strong>, offering personalised women's health consultations at Agarwal Clinic in Tilak Nagar, Jaipur. With advanced training from SMS Medical College and fellowship expertise in laparoscopic surgery, she delivers comprehensive gynaecological care for patients across Rajasthan.
+          </p>
+          <p style={{ fontSize: '0.98rem', color: 'var(--text-light)', lineHeight: '1.7', marginBottom: '30px' }}>
+            From PCOS and irregular period management to pregnancy care and minimally invasive surgery, Dr. Aditi combines clinical precision with genuine empathy. Secure online video consultations are also available for patients who prefer to connect from home, making quality <strong>gynaecologist consultation in Jaipur</strong> accessible to everyone.
           </p>
           <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={API_CONFIG.MAPS_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
@@ -744,9 +747,9 @@ export default function App() {
           <div className="intro-content">
             <span className="tagline">Consultant Profile</span>
             <h2>{API_CONFIG.DOCTOR_NAME}</h2>
-            <p className="credentials-subtitle">Assistant Professor (OBGY) | MBBS · MS OBGY</p>
+            <p className="credentials-subtitle">Assistant Professor (OBGY) | MBBS · MS OBGY | Best Gynaecologist in Jaipur</p>
             <p className="bio-summary">
-              Dr. Aditi Jain is an Assistant Professor of Obstetrics & Gynaecology, Infertility Specialist, and Gynae Laparoscopic Surgeon with 6+ years of post-MBBS clinical experience. Educated at Jhalawar Medical College and SMS Medical College Jaipur, she holds Fellowships in Laparoscopic Surgery & Ultrasonography.
+              Dr. Aditi Jain is an Assistant Professor of Obstetrics & Gynaecology, Infertility Specialist, and Gynae Laparoscopic Surgeon with 6+ years of post-MBBS clinical experience. Educated at Jhalawar Medical College and SMS Medical College Jaipur, she holds Fellowships in Laparoscopic Surgery & Ultrasonography. Recognised among the <strong>best gynaecologist doctors in Jaipur</strong>, she is trusted by patients seeking expert women's healthcare, fertility guidance, and advanced laparoscopic procedures.
             </p>
             <button className="btn btn-primary" onClick={() => { setPage('about'); window.scrollTo({ top: 0 }); }} style={{ marginTop: '20px' }}>
               Meet the Doctor

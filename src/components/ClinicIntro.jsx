@@ -22,7 +22,7 @@ export default function ClinicIntro({ setPage }) {
           <span className="eyebrow">PATIENT-FIRST WOMEN'S CARE</span>
           <h2>A Modern Approach to Women's Healthcare</h2>
           <p className="intro-text">
-            Led by <strong>Dr. Aditi Jain</strong> (Assistant Professor, Infertility Specialist & Gynae Laparoscopic Surgeon with 6+ years clinical experience), our clinic provides compassionate, evidence-based care in a private, supportive environment. Whether visiting for fertility guidance, prenatal care, PCOS management, or laparoscopic procedures, you receive complete individual focus.
+            Led by <strong>Dr. Aditi Jain</strong> (Assistant Professor, Infertility Specialist & Gynae Laparoscopic Surgeon with 6+ years clinical experience), our clinic provides compassionate, evidence-based care in a private, supportive environment. Whether visiting for fertility guidance, prenatal care, PCOS management, or laparoscopic procedures, you receive complete individual focus. Recognised as one of the <strong>best gynaecologist in Jaipur</strong> and a trusted <strong>gynac doctor in Jaipur</strong>, Dr. Aditi ensures every patient receives thorough diagnostics, clear explanations, and a personalised treatment approach tailored to their unique health needs.
           </p>
           
           <ul className="intro-highlights">

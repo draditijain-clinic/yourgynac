@@ -183,8 +183,8 @@ export default function Services({ setPage }) {
   return (
     <section className="services-section">
       <SEO 
-        title="Gynaecology & Women's Health Services in Jaipur | Dr. Aditi Jain"
-        description="Explore women's health and gynaecological consultation areas offered by Dr. Aditi Jain in Jaipur, including pregnancy, PCOS, menstrual and hormonal concerns."
+        title="Best Gynaecologist Services in Jaipur | PCOS, Pregnancy & Fertility | Dr. Aditi Jain"
+        description="Explore women's health and gynaecological services by Dr. Aditi Jain, the best gynaecologist in Jaipur and top gynac doctor. Consult for pregnancy, PCOS, menstrual health, fertility, hormonal care and laparoscopic surgery in Jaipur."
         path="/services"
         schema={{
           "@context": "https://schema.org",
@@ -197,8 +197,8 @@ export default function Services({ setPage }) {
         
         <div className="section-header fade-in-down">
           <span className="tagline">JAIPUR CLINIC CONSULTATIONS</span>
-          <h2>Gynaecology & Women's Health Services in Jaipur</h2>
-          <p>Evidence-based diagnostic and treatment services suited for every stage of a woman's life.</p>
+          <h2>Best Gynaecologist Services in Jaipur</h2>
+          <p>Evidence-based diagnostic and treatment services by Dr. Aditi Jain, one of the best gynaecologist doctors in Jaipur, suited for every stage of a woman's life.</p>
         </div>
 
         <div className="services-grid">

@@ -7,8 +7,8 @@ export default function About({ setPage }) {
   return (
     <section className="about-section">
       <SEO 
-        title="About Dr. Aditi Jain | Assistant Professor, Obstetrician & Gynaecologist | Jaipur"
-        description="Dr. Aditi Jain is an Assistant Professor, Obstetrician & Gynaecologist in Jaipur with 6+ years experience, MBBS from Jhalawar Medical College and MS OBGY from SMS Medical College, Jaipur. Specializing in Infertility and Gynae Laparoscopic Surgery."
+        title="About Dr. Aditi Jain | Best Gynaecologist in Jaipur | Best Gynac Doctor"
+        description="Dr. Aditi Jain is the best gynaecologist in Jaipur and a top-rated gynac doctor with 6+ years experience, MBBS from Jhalawar Medical College and MS OBGY from SMS Medical College, Jaipur. Best gynecologist for Infertility, PCOS, Pregnancy & Gynae Laparoscopic Surgery in Jaipur."
         path="/about"
         schema={{
           "@context": "https://schema.org",
@@ -73,15 +73,16 @@ export default function About({ setPage }) {
             <div className="profile-block">
               <h3>About Dr. Aditi Jain</h3>
               <p>Dr. Aditi Jain is an Assistant Professor of Obstetrics & Gynaecology, Infertility Specialist, and Gynae Laparoscopic Surgeon based in Jaipur with over 6 years of clinical experience post-MBBS. Educated at premier medical institutes including Jhalawar Medical College and SMS Medical College Jaipur, she combines academic excellence with compassionate, patient-first care.</p>
+              <p style={{ marginTop: '12px' }}>Recognized as one of the <strong>best gynaecologist in Jaipur</strong> and a leading <strong>best gynac in Jaipur</strong>, Dr. Aditi is widely recommended for her thorough clinical approach, empathetic consultations, and advanced surgical expertise. Patients across Jaipur trust her for comprehensive women's healthcare, from routine gynaecological check-ups and PCOS management to complex laparoscopic procedures and high-risk pregnancy care. Whether you are searching for the <strong>best gynaecologist doctor in Jaipur</strong>, a <strong>top gynecologist in Jaipur</strong>, or a trusted <strong>best gynae doctor in Jaipur</strong>, Dr. Aditi Jain delivers evidence-based, personalised care that puts your health and comfort first.</p>
             </div>
 
             <div className="profile-block">
               <h3>Qualifications & Fellowships</h3>
               <ul className="details-bullet-list">
-                <li><strong>Master of Surgery (MS)</strong> in Obstetrics & Gynaecology — SMS Medical College, Jaipur (2020 Batch)</li>
-                <li><strong>Bachelor of Medicine, Bachelor of Surgery (MBBS)</strong> — Jhalawar Medical College, Rajasthan (2013 Batch)</li>
-                <li><strong>Fellowship in Laparoscopic Surgery</strong> — Navyam Hospital</li>
-                <li><strong>Fellowship in Ultrasonography (Ultrasound)</strong> — Specialized Diagnostic Ultrasound Training</li>
+                <li><strong>Master of Surgery (MS)</strong> in Obstetrics & Gynaecology | SMS Medical College, Jaipur (2020 Batch)</li>
+                <li><strong>Bachelor of Medicine, Bachelor of Surgery (MBBS)</strong> | Jhalawar Medical College, Rajasthan (2013 Batch)</li>
+                <li><strong>Fellowship in Laparoscopic Surgery</strong> | Navyam Hospital</li>
+                <li><strong>Fellowship in Ultrasonography (Ultrasound)</strong> | Specialized Diagnostic Ultrasound Training</li>
                 <li>Registered Medical Practitioner with Rajasthan Medical Council</li>
               </ul>
             </div>
@@ -132,7 +133,7 @@ export default function About({ setPage }) {
                 <li><strong>Academic Qualifications & Training:</strong> Look for post-graduate degrees (MS or MD in OBGY) from renowned government medical colleges like SMS Medical College Jaipur, backed by specialized fellowships in laparoscopic surgery and diagnostic ultrasound.</li>
                 <li><strong>Clinical Experience & Hospital Background:</strong> Academic faculty roles (such as Assistant Professor) and tertiary hospital experience ensure the doctor handles complex cases and high-risk pregnancies with evidence-based protocols.</li>
                 <li><strong>Comprehensive Spectrum of Care:</strong> Ensure the doctor provides holistic care ranging from PCOS/PCOD guidance and period regularity to advanced infertility evaluation and minimally invasive gynae laparoscopy.</li>
-                <li><strong>Accessible Location & Setup:</strong> Convenience matters—having a private setup at <strong>Agarwal Clinic in Tilak Nagar / Raja Park, Jaipur</strong> along with secure online video consultation options makes continuous care seamless.</li>
+                <li><strong>Accessible Location & Setup:</strong> Convenience matters. Having a private setup at <strong>Agarwal Clinic in Tilak Nagar / Raja Park, Jaipur</strong> along with secure online video consultation options makes continuous care seamless.</li>
               </ul>
             </div>
 

@@ -37,7 +37,7 @@ export default function Hero({ setPage }) {
           </h1>
 
           <p className="hero-subtext">
-            Expert care from Dr. Aditi Jain (Assistant Professor, MBBS & MS OBGY SMS Medical College Jaipur)—trusted <strong>gynaecologist in Jaipur</strong> and <strong>gynae doctor in Tilak Nagar</strong>. Specializing as an <strong>infertility specialist</strong>, <strong>pregnancy doctor</strong>, <strong>PCOS specialist</strong>, and <strong>gynae laparoscopic surgeon</strong>.
+            Expert care from Dr. Aditi Jain (Assistant Professor, MBBS & MS OBGY SMS Medical College Jaipur), a trusted <strong>gynaecologist in Jaipur</strong> and <strong>gynae doctor in Tilak Nagar</strong>. Recognised as one of the <strong>best gynaecologist in Jaipur</strong> and a leading <strong>best gynac in Jaipur</strong>, she specializes as an <strong>infertility specialist</strong>, <strong>pregnancy doctor</strong>, <strong>PCOS specialist</strong>, and <strong>gynae laparoscopic surgeon</strong>. Book your consultation with the <strong>top gynecologist doctor in Jaipur</strong> today.
           </p>
           <div className="hero-actions">
             <button 

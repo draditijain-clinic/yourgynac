@@ -11,12 +11,14 @@ import AdminReviews from './AdminReviews';
 import { adminApi } from '../../services/adminApi';
 
 import HistoryPage from './HistoryPage';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function AdminRoot({ setPage }) {
   const [isAuthenticated, setIsAuthenticated] = useState(adminApi.isAuthenticated());
   const [activeTab, setActiveTab] = useState('dashboard');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -55,13 +57,40 @@ export default function AdminRoot({ setPage }) {
               required
               autoFocus
             />
-            <input 
-              type="password" 
-              placeholder="Password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="password-wrapper" style={{ position: 'relative', width: '100%', marginBottom: '15px' }}>
+              <input 
+                type={showPassword ? "text" : "password"} 
+                placeholder="Password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                style={{ paddingRight: '45px', marginBottom: 0 }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-light)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '4px',
+                  borderRadius: '4px',
+                  transition: 'color 0.2s',
+                }}
+                className="password-toggle-btn"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
             {error && <p className="error-text">{error}</p>}
             <button type="submit" className="btn btn-primary" disabled={loading}>
               {loading ? 'Authenticating...' : 'LOGIN'}
@@ -110,6 +139,9 @@ export default function AdminRoot({ setPage }) {
           }
           .admin-login-card .btn {
             width: 100%;
+          }
+          .password-toggle-btn:hover {
+            color: var(--primary-color) !important;
           }
           .error-text {
             color: #ef4444;
